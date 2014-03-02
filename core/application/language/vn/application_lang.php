@@ -29,3 +29,10 @@ $lang['Description']        =   'Mô tả';
 /****** MESSAGE ******/
 $lang['Create Success']     =   'Tạo thành công';
 $lang['Update Success']     =   'Cập nhật thành công';
+
+$lang['Recent Activities']  =   'Các hoạt động gần đây';
+$lang['See All']            =   'Xem thêm';
+$lang['has logged']         =   'đã đăng nhập';
+$lang['created a user']     =   'đã tạo một tài khoản';
+$lang['updated a user']     =   'đã cập nhật một tài khoản';
+$lang['No New Activity']    =   'Không có cập nhật mới';

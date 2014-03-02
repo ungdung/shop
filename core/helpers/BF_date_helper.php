@@ -43,16 +43,16 @@ if ( ! function_exists('relative_time'))
             return date($format, $time);
         }
         if ($d >= 60*60*24) {
-            $day = 'Yesterday';
+            $day = lang('Yesterday');
             if (date('l', time() - 60*60*24) !== date('l', $time)) { $day = date('l', $time); }
-            return $day . " at " . date('H:i', $time);
+            return $day . " ".lang('at')." " . date('H:i', $time);
         }
-        if ($d >= 60*60*2) { return intval($d / (60*60)) . " hours ago"; }
-        if ($d >= 60*60) { return "about an hour ago"; }
-        if ($d >= 60*2) { return intval($d / 60) . " minutes ago"; }
-        if ($d >= 60) { return "about a minute ago"; }
-        if ($d >= 2) { return intval($d) . " seconds ago"; }
-        return "a few seconds ago";
+        if ($d >= 60*60*2) { return intval($d / (60*60)) ." ". lang("hours ago"); }
+        if ($d >= 60*60) { return lang("about an hour ago"); }
+        if ($d >= 60*2) { return intval($d / 60) . " ".lang("minutes ago"); }
+        if ($d >= 60) { return lang("about a minute ago"); }
+        if ($d >= 2) { return intval($d) . " ".lang("seconds ago"); }
+        return lang("a few seconds ago");
     }
 
 }
