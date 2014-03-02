@@ -53,10 +53,10 @@ class Users_model extends BF_Model {
         $data= parent::join($this->roles_table,$this->roles_table.'.role_id='.$this->table_name.'.role_id')->where_in($this->table_name.'.role_id',$rolesManage)->where($strWhere,null,false)->order_by($kTable['order_by'],$kTable['sort_by'])->limit($kTable['limit'],$kTable['offset'])->find_all();
 
         // total rows found.
-        $totalDisplayRecords = parent::join($this->roles_table,$this->roles_table.'.role_id='.$this->table_name.'.role_id')->where_in($this->table_name.'.role_id',$rolesManage)->where($strWhere,null,false)->find_all();
+        $totalDisplayRecords = parent::join($this->roles_table,$this->roles_table.'.role_id='.$this->table_name.'.role_id')->where_in($this->table_name.'.role_id',$rolesManage)->where($strWhere,null,false)->count_all();
 
         //total rows in database
-        $totalRecords = $this->db->join($this->roles_table,$this->roles_table.'.role_id='.$this->table_name.'.role_id')->where_in($this->table_name.'.role_id',$rolesManage)->get($this->table_name)->num_rows();
+        $totalRecords = parent::join($this->roles_table,$this->roles_table.'.role_id='.$this->table_name.'.role_id')->where_in($this->table_name.'.role_id',$rolesManage)->count_all();
 
         $result = array(
             "sEcho" => $kTable['sEcho'],

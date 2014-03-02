@@ -641,7 +641,7 @@ class BF_Model extends CI_Model
         } elseif ($this->return_insert_id) {
             $id = $this->db->insert_id();
             if($this->log_activity) {
-                $this->log_activity('created',$id);
+                $this->log_activity($id);
             }
             $status = $this->trigger('after_insert', $id);
         }
@@ -742,7 +742,7 @@ class BF_Model extends CI_Model
 			$data[$this->modified_by_field] = $this->auth->user_id();
 		}
         if($this->customer_id) {
-            $data['customer_id']    =   CUSTOMER_ID;
+            $where['customer_id']   =   CUSTOMER_ID;
         }
 		if ($result = $this->db->update($this->table_name, $data, $where))
 		{
@@ -968,6 +968,9 @@ class BF_Model extends CI_Model
 	 */
 	public function count_all()
 	{
+        if($this->customer_id) {
+            $this->db->where($this->table_name.'.customer_id',CUSTOMER_ID);
+        }
 		return $this->db->count_all_results($this->table_name);
 
 	}//end count_all()
@@ -990,7 +993,9 @@ class BF_Model extends CI_Model
 			$this->logit('['. get_class($this) .': '. __METHOD__ .'] '. lang('bf_model_count_error'));
 			return FALSE;
 		}
-
+        if($this->customer_id) {
+            $this->db->where($this->table_name.'.customer_id',CUSTOMER_ID);
+        }
 		$this->db->where($field, $value);
 
 		return (int)$this->db->count_all_results($this->table_name);
