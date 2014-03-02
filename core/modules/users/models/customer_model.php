@@ -33,7 +33,7 @@ class Customer_model extends BF_Model {
             parent::where('username',CUSTOMER);
         }
         else {
-            parent::where(array('domain'=>site_url(),'domain.active'=>1));
+            parent::where(array('domain'=>$_SERVER['HTTP_HOST'],'domain.active'=>1));
         }
 
         return parent::find_by(array('expiry_date >'=>date("Y-m-d"),'customer.active'=>1));

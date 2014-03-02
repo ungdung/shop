@@ -12,6 +12,12 @@ class Activity_model extends BF_Model {
     protected $table_name = 'activity';
     protected $key = 'activity_id';
     protected $customer_id = true;
+    protected $log_activity = false;
+
+    protected $log_user =false;
+    protected $set_created = false;
+
+    protected $set_modified = false;
 
     public function __construct() {
         parent::__construct();

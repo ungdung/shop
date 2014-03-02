@@ -1942,6 +1942,7 @@ class BF_Model extends CI_Model
     public function log_activity($target_id) {
         $ci =& get_instance();
         $ci->load->library('user_agent');
+        $ci->load->model('activity/activity_model');
         $data = array('module'=>$ci->router->fetch_module(),
                         'action'    =>  $this->action,
                         'user_id'   =>  $ci->auth->user_id(),
@@ -1953,7 +1954,7 @@ class BF_Model extends CI_Model
                         'os'        =>  $ci->agent->platform(),
                         'created_on'=>  date("Y-m-d H:i:s")
         );
-        return $this->db->insert('activity',$data);
+        return $this->activity_model->insert($data);
     }
 
     public function setAction($action) {
