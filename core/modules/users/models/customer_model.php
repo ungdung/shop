@@ -28,6 +28,7 @@ class Customer_model extends BF_Model {
     }
 
     public function getCustomer() {
+        parent::select('customer.*');
         parent::join('domain','domain.customer_id=customer.customer_id','left');
         if(defined('CUSTOMER')) {
             parent::where('username',CUSTOMER);

@@ -158,6 +158,7 @@ class Auth
 				'last_ip'				=> $this->ip_address,
 			);
             $this->ci->users_model->setAction('has logged');
+
 			$this->ci->users_model->update($user->id, $data);
 
 			// Clear the cached result of user() (and hence is_logged_in(), user_id() etc).
