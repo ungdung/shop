@@ -1950,7 +1950,7 @@ class BF_Model extends CI_Model
         $ci->load->model('activity/activity_model');
         $data = array('module'=>$ci->router->fetch_module(),
                         'action'    =>  $this->action,
-                        'user_id'   =>  $ci->auth->user_id(),
+                        'user_id'   =>  $ci->session->userdata('user_id'),
                         'target_id' =>  $target_id,
                         'target_url'=>  $this->target_url,
                         'browser'   =>  $this->agent->browser(),
