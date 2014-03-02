@@ -184,7 +184,7 @@ ul.userNav li:hover { background-color: #282828; }
 ul.userNav li:active { background-color: #242424; }
 ul.userNav li a { display: block; height: 28px; width: 28px; }
 
-ul.userNav li a.notification { background: url(../images/icons/usernav/screen.png) no-repeat 9px 9px; }
+ul.userNav li a.notification { color:#FFFFFF; font-weight: bold; line-height:28px;text-align: center; }
 ul.userNav li a.settings { background: url(../images/icons/usernav/settings.png) no-repeat 9px 9px; }
 ul.userNav li a.profile { background: url(../images/icons/usernav/profile.png) no-repeat 9px 9px;  }
 ul.userNav li a.messages { background: url(../images/icons/usernav/messages.png) no-repeat 9px 10px;  }
@@ -210,7 +210,7 @@ ul.userNav li a.sidebar { background: url(../images/icons/usernav/sidebar.png) n
     cursor: pointer;
 }
 #notification .notificationRow.unread {
-    background: #2C2C2C;
+    background: #4c4c4c;
 }
 #notification li:last-child {
     border:none;

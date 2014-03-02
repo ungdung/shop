@@ -76,10 +76,7 @@ class Settings extends Admin_Controller {
             Template::redirect(SITE_AREA);
         }
 
-        if(!$user = $this->users_model->find($id)) {
-            Template::set_message(lang('User Not Found'),'warning');
-            Template::redirect(MODULE_URL);
-        } // check exist
+
 
         if(!has_permission('Site.'.$this->db->where('role_id',$user->role_id)->get('roles')->row('role_name').'.Manage')) {
             Template::set_message(lang('User Not Found'), 'error');
@@ -91,6 +88,10 @@ class Settings extends Admin_Controller {
             } // save data.
         }
 
+        if(!$user = $this->users_model->find($id)) {
+            Template::set_message(lang('User Not Found'),'warning');
+            Template::redirect(MODULE_URL);
+        } // check exist
 
         Assets::add_js($this->load->view('settings/form_js',null,true),'inline');
         Template::set('toolbar_title',lang('Update User'));
