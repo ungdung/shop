@@ -5,8 +5,10 @@
     $(document).ready(function() {
         $.ajax({
             url: '<?php echo site_url(SITE_AREA.'/settings/activity/getNotification'); ?>',
+            dataType: 'json',
             success: function(res) {
-                $('#notification ul').append(res);
+                $('.notification').html(res.total_unread);
+                $('#notification ul').append(res.result);
                 $('img.mImage').fakecrop({wrapperWidth:50,wrapperHeight:50});
             }
         });

@@ -16,7 +16,8 @@ class Settings extends Admin_Controller {
 
     function getNotification($offset=0) {
         $activities = $this->activity_model->getNotification($offset);
+        $total_unread = $this->activity_model->count_by(array('read'=>0));
         $result = $this->load->view('settings/notification',array('activities'=>$activities),TRUE);
-        exit($result);
+        exit(json_encode(array('total_unread'=>$total_unread,'result'=>$result)));
     }
 } 

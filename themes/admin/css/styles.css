@@ -179,7 +179,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fdfdfd', end
 
 #sidebar ul.userNav { display: none; }
 ul.userNav { float: left; margin: 10px 0 0 0; }
-ul.userNav li { display: inline-block; margin: 0 0 0 10px; background: #262626; -webkit-border-radius: 50%; -moz-border-radius: 50%; border-radius: 50%; box-shadow: 0 1px 0 #4e4e4e; -webkit-box-shadow: 0 1px 0 #4e4e4e; -moz-box-shadow: 0 1px 0 #4e4e4e }
+ul.userNav li { float:left; margin: 0 0 0 10px; background: #262626; -webkit-border-radius: 50%; -moz-border-radius: 50%; border-radius: 50%; box-shadow: 0 1px 0 #4e4e4e; -webkit-box-shadow: 0 1px 0 #4e4e4e; -moz-box-shadow: 0 1px 0 #4e4e4e }
 ul.userNav li:hover { background-color: #282828; }
 ul.userNav li:active { background-color: #242424; }
 ul.userNav li a { display: block; height: 28px; width: 28px; }
