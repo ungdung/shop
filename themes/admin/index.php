@@ -23,6 +23,7 @@
                         <div class="contentNotification">
                             <ul class="fluid"></ul>
                         </div>
+
                         <div class="fluid seeMore">
                             <div><?php echo anchor(SITE_AREA.'settings/activity',lang('See All')); ?></div>
                         </div>

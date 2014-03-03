@@ -130,7 +130,6 @@ $(function() {
 	
 	//===== Top panel search field =====//
 
-    $('#notification .contentNotification').mCustomScrollbar();
 	$('.userNav a.notification').click(function () {
 		$('.topNotification').fadeToggle(150);
 	});

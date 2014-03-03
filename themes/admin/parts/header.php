@@ -24,6 +24,8 @@
         'plugins/ui/jquery.progress.js',
         'plugins/ui/jquery.fakecrop.js',
         'plugins/ui/jquery.mCustomScrollbar.js',
+        'plugins/ui/waypoints.js',
+        'plugins/ui/waypoints-infinite.js',
         'files/bootstrap.js',
         'files/functions.js',
         'plugins/plupload/plupload.full.min.js'

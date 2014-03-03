@@ -89,7 +89,11 @@ class Admin_Controller extends Authenticated_Controller
                 }
                 if ( $_GET[ 'bSortable_'.intval($_GET['iSortCol_0']) ] == "true" )
                 {
-                    $this->kTable['order_by'] = $_GET['mDataProp_'.$i];
+                    if(strpos($this->input->get('mDataProp_'.$i),"__X__")!==false) {
+                        $column = preg_replace("/__X__(.+)+$/", "",$this->input->get('mDataProp_'.$i));
+                        $column = str_replace("__K__",".",$column);
+                    }
+                    $this->kTable['order_by'] = $column;
                     if(preg_match("#(.*) as (.*)#",$this->kTable['order_by'],$result)) {
                         $this->kTable['order_by'] = $result[1];
                     }
