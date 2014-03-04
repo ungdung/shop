@@ -24,8 +24,8 @@ class Activity_model extends BF_Model {
     }
 
 
-    public function getNotification($offset) {
-        parent::select('activity.*, users.avatar, users.first_name, users.last_name')->join('users','users.id=activity.user_id')->limit(15,$offset)->order_by('activity_id','desc');
+    public function getNotification() {
+        parent::select('activity.*, users.avatar, users.first_name, users.last_name')->join('users','users.id=activity.user_id')->limit(30)->order_by('activity_id','desc');
         return parent::find_all();
     }
 } 

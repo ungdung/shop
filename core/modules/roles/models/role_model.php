@@ -17,7 +17,7 @@ class Role_model extends BF_Model
 	protected $set_created = FALSE;
 
 	protected $set_modified = FALSE;
-
+    protected $customer_id = true;
 	//--------------------------------------------------------------------
 
 	public function __construct()
@@ -34,7 +34,7 @@ class Role_model extends BF_Model
 	//--------------------------------------------------------------------
     public function loadTable($kTable) {
 
-        $roles = $this->db->get($this->table_name)->result();
+        $roles = parent::find_all();
         $rolesManage = array();
         if(!empty($roles)) {
             foreach($roles as $role) {
@@ -47,7 +47,7 @@ class Role_model extends BF_Model
         //set column you want select.
         $kTable['columns'][] = $this->table_name.'.role_id';
         //get data fill to table
-        $this->db->select($kTable['columns']);
+        parent::select($kTable['columns']);
 
         //build where query
         $strWhere = null;
@@ -60,15 +60,13 @@ class Role_model extends BF_Model
             $strWhere = "(".substr($strWhere,0,-2).")";
         }
 
-        $data= $this->db->select(array($this->table_name.'.*','COUNT(id) as total_user'))->join($this->table_users,$this->table_users.'.role_id='.$this->table_name.'.role_id','left')->where_in($this->table_name.'.role_id',$rolesManage)->where($strWhere,null,false)->order_by($kTable['order_by'],$kTable['sort_by'])->group_by($this->key)->limit($kTable['limit'],$kTable['offset'])->get($this->table_name)->result();
+        $data= parent::select(array($this->table_name.'.*','COUNT(id) as total_user'))->join($this->table_users,$this->table_users.'.role_id='.$this->table_name.'.role_id','left')->where_in($this->table_name.'.role_id',$rolesManage)->where($strWhere,null,false)->order_by($kTable['order_by'],$kTable['sort_by'])->group_by($this->table_name.'.'.$this->key)->limit($kTable['limit'],$kTable['offset'])->find_all();
 
         // total rows in database (with search).
-        $this->db->select($kTable['columns']);
-
-        $totalDisplayRecords = $this->db->join($this->table_users,$this->table_users.'.role_id='.$this->table_name.'.role_id','left')->where_in($this->table_name.'.role_id',$rolesManage)->where($strWhere,null,false)->group_by($this->key)->get($this->table_name)->num_rows();
+        $totalDisplayRecords = parent::join($this->table_users,$this->table_users.'.role_id='.$this->table_name.'.role_id','left')->where_in($this->table_name.'.role_id',$rolesManage)->where($strWhere,null,false)->group_by($this->table_name.'.'.$this->key)->count_all();
 
         //total rows in database
-        $totalRecords = $this->db->where_in($this->table_name.'.role_id',$rolesManage)->where($strWhere,null,false)->get($this->table_name)->num_rows();
+        $totalRecords = parent::where_in($this->table_name.'.role_id',$rolesManage)->count_all();
 
         $result = array(
             "sEcho" => $kTable['sEcho'],
