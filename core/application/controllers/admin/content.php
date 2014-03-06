@@ -11,7 +11,7 @@ class Content extends Admin_Controller
 	public function __construct()
 	{
 		parent::__construct();
-		Template::set('toolbar_title', 'Content');
+		Template::set('toolbar_title', lang('Dashboard'));
 	}//end __construct()
 
 	public function index()

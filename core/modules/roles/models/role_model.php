@@ -17,7 +17,6 @@ class Role_model extends BF_Model
 	protected $set_created = FALSE;
 
 	protected $set_modified = FALSE;
-    protected $customer_id = true;
 	//--------------------------------------------------------------------
 
 	public function __construct()

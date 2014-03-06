@@ -1,5 +1,4 @@
 $(function() {
-
     $('.kTableFull').dataTable( {
         "bProcessing": true,
         "bServerSide": true,
