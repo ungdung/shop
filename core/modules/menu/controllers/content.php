@@ -32,7 +32,7 @@ class Content extends Admin_Controller
                         $this->menu_model->_deactivate($checked);
                         break;
                     case 'delete':
-                        $a = $this->menu_model->_delete($checked);
+                        $this->menu_model->_delete($checked);
                         break;
                 }
             } else {
@@ -40,10 +40,34 @@ class Content extends Admin_Controller
             }
         }
         Assets::add_js($this->load->view('content/index_js', null, true), 'inline');
-        Template::set('results', $this->menu_model->order_by('order')->find_all_by(array('parent' => 0)));
+        Template::set('results', $this->menu_model->order_by('order')->find_all());
         Template::render();
     }
 
+
+    public function manage_order() {
+        Assets::add_js('plugins/ui/jquery.drag.drop.menu.js');
+        Assets::add_css('drag.drop.menu.css');
+        Assets::add_js($this->load->view('content/manage_order_js',null,true),'inline');
+        Template::render();
+    }
+
+    public function sorting() {
+        $data = $this->input->post('menu');
+        $this->doSorting($data);
+    }
+    private function doSorting($data) {
+        if(!empty($data)) {
+            $i=0;
+                foreach($data as $item) {
+                $this->menu_model->update($item['id'],array('order'=>$i));
+                ++$i;
+                if(isset($item['children'])) {
+                    $this->doSorting($item['children']);
+                }
+            }
+        }
+    }
     public function create()
     {
         if ($this->input->post('submit')) {

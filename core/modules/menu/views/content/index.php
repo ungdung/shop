@@ -35,7 +35,7 @@
                 </tfoot>
             <?php endif; ?>
 
-            <tbody class="sort">
+            <tbody>
             <?php if (!empty($results)) : ?>
                 <?php foreach ($results as $result): ?>
                     <tr id="row_<?php echo $result->id; ?>">

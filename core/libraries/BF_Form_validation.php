@@ -152,7 +152,7 @@ class BF_Form_validation extends CI_Form_validation
 	 */
 	function unique($value, $params)
 	{
-		$this->CI->form_validation->set_message('unique', lang('bf_form_unique'));
+		$this->CI->form_validation->set_message('unique', lang('Unique'));
 
 		// allow for more than 1 parameter
 		$fields = explode(",", $params);

@@ -13,10 +13,7 @@ class Menu_model extends BF_Model
     protected $table_name = 'menu';
     protected $key = 'id';
 
-    protected $fields = array(
-        "id", "name", "url", "target", "order", "parent", "image", "roles", "active"
-    );
-
+    
 
     function __construct() {
         parent::__construct();
@@ -49,6 +46,43 @@ class Menu_model extends BF_Model
         }
         return $items;
     }
+
+
+    public function buildListCatalogHTML($catalog=false,$parent_id=0) {
+        $str='';
+        if(!is_array($catalog) AND $parent_id==0) {
+            $catalog = $this->listOrder($catalog);
+        }
+        if($catalog===false AND $parent_id==0) {
+            $catalog = $this->listOrder();
+        }
+        if(!empty($catalog)) {
+            $str .= '<ol class="dd-list">';
+            foreach($catalog as $var) {
+                $str .='<li class="dd-item" data-id="'.$var->id.'">
+                        <div class="dd-handle">'.$var->name.'</div>';
+                if(is_array($var->subCatalog)){
+                    $str .= $this->buildListCatalogHTML($var->subCatalog,$var->parent);
+                }
+                $str .='</li>';
+            }
+            $str .='</ol>';
+        }
+        return $str;
+    }
+
+    public function listOrder($id=0,$parent_id=0) {
+        $parent = parent::order_by('order','asc')->find_all_by(array('parent' => $parent_id,'id !='=>$id));
+        $category = array();
+        if(!empty($parent)) {
+            foreach($parent as $key=>$var) {
+                $category[$key] = $var;
+                $category[$key]->subCatalog = $this->listOrder($id,$var->id);
+            }
+        }
+        return $category;
+    }
+
 }
 
 
