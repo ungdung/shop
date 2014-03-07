@@ -42,7 +42,7 @@ class Admin_Controller extends Authenticated_Controller
         $this->load->library('contexts');
         $this->load->library(array('ckeditor'));
 
-        $this->ckeditor->basePath = site_url('assets/ckeditor').'/';
+        $this->ckeditor->basePath = file_url    ('assets/ckeditor').'/';
         // Pagination config
         $this->pager = array();
         $this->pager['full_tag_open']	= '<div class="tPages"><ul class="pages">';
@@ -67,7 +67,6 @@ class Admin_Controller extends Authenticated_Controller
             $this->kTable['where'] = array();
             $this->kTable['sEcho'] = intval($this->input->get('sEcho'));
             $key = $this->input->get('sSearch');
-            $order_icol = $this->input->get('iSortingCols');
             for($i=0; $i<intval($this->input->get('iColumns')); $i++) {
                 if(strpos($this->input->get('mDataProp_'.$i),"__NO__SELECT__")===false) {
                     $column = str_replace(array("__K__","__X__"),array("."," as "),$this->input->get('mDataProp_'.$i));

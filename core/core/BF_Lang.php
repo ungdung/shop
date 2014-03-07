@@ -2,21 +2,9 @@
 
 class BF_Lang extends CI_Lang {
 
-    /**
-     * Load a language file
-     *
-     * Bonfire modifies this to attempt to find language files within modules, also.
-     *
-     * @access  public
-     * @param   mixed   the name of the language file to be loaded. Can be an array
-     * @param   string  the language (english, etc.)
-     * @param   bool    return loaded array of translations
-     * @param   bool    add suffix to $langfile
-     * @param   string  alternative path to look for language file
-     * @return  mixed
-     */
     function load($langfile = '', $idiom = '', $return = FALSE, $add_suffix = TRUE, $alt_path = '')
     {
+
         $langfile = str_replace('.php', '', $langfile);
 
         if ($add_suffix == TRUE)

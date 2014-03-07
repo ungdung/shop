@@ -63,9 +63,25 @@ else {
     define('CUSTOMER_PATH',$customer.'/');
     unset($customer);
 }
+require_once( BASEPATH .'database/DB'. EXT );
 
-//define('CUSTOMER_PATH',@array_shift(explode("/",substr(array_shift(array_keys($_GET)),1))).'/');
+$db =& DB();
+$db->select('customer.*');
+$db->join('domain','domain.customer_id=customer.customer_id','left');
+if(defined('CUSTOMER')) {
+    $db->where('username',CUSTOMER);
+}
+else {
+    $db->where(array('domain'=>$_SERVER['HTTP_HOST'],'domain.active'=>1));
+}
 
+$db->where(array('expiry_date >'=>date("Y-m-d"),'customer.active'=>1));
+$customer = $db->get('customer')->row('customer_id');
+if(!$customer) {
+    redirect(WEB_SERVICE);
+} else {
+    define('CUSTOMER_ID',$customer);
+}
 /*
 	The 'LOGIN_URL' and 'REGISTER_URL' constant allows changing of the url where the login page is accessible
 	(asides from the controller-based 'users/login'). This may be helpful for reducing brute force

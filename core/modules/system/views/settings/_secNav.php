@@ -12,7 +12,6 @@
                 <ul class="subNav etabs">
                     <li class="activeli"><a class="this" title="" href="#webConfig"><span class="icos-info"></span><?php echo lang("Web Config"); ?></a></li>
                     <li><a title="" href="#maintenance"><span class="icos-settings"></span><?php echo lang("Maintenance"); ?></a></li>
-                    <li><a title="" href="#emailSystem"><span class="icos-email"></span><?php echo lang("Email System"); ?></a></li>
                 </ul>
                 <div class="divider"><span></span></div>
 

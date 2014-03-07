@@ -803,7 +803,9 @@ class BF_Model extends CI_Model
                 }
             }
         }
-
+        if($this->customer_id) {
+            $this->db->where('customer_id',CUSTOMER_ID);
+        }
         $result = $this->db->update_batch($this->table_name, $data, $index);
         if (empty($result))
         {

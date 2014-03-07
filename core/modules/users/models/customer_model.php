@@ -19,9 +19,6 @@ class Customer_model extends BF_Model {
 
     public function isUser() {
         if($customer = $this->getCustomer()) {
-            if(!defined('CUSTOMER_ID')) {
-                define('CUSTOMER_ID',$customer->customer_id);
-            }
             return true;
         }
         return false;
@@ -36,7 +33,6 @@ class Customer_model extends BF_Model {
         else {
             parent::where(array('domain'=>$_SERVER['HTTP_HOST'],'domain.active'=>1));
         }
-
         return parent::find_by(array('expiry_date >'=>date("Y-m-d"),'customer.active'=>1));
     }
 

@@ -52,7 +52,7 @@ if ( ! function_exists('site_url'))
 
 if ( ! function_exists('image_url'))
 {
-    function image_url($uri = '')
+    function file_url($uri = '')
     {
         $CI =& get_instance();
         if(strpos($uri,"//")===false) return $CI->config->site_url($uri);

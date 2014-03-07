@@ -224,7 +224,6 @@ class Settings_lib
 		{
 			return self::$cache;
 		}
-
 		$settings = $this->ci->settings_model->find_all();
 
 		foreach($settings as $setting)

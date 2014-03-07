@@ -85,7 +85,7 @@ class Settings_model extends BF_Model
 	protected $set_modified = FALSE;
 
 	//--------------------------------------------------------------------
-
+    protected $customer_id =true;
 
 	/**
 	 * A convenience method that combines a where() and find_all()

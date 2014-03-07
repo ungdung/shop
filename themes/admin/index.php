@@ -2,7 +2,7 @@
     <!-- Top line begins -->
     <div id="top">
         <div class="wrapper">
-            <?php echo anchor(SITE_AREA.'/content',settings_item('site.title'),'class="logo"'); ?>
+            <?php echo anchor(SITE_AREA.'/content',settings_item('meta.title'),'class="logo"'); ?>
             <!-- Right top nav -->
             <div class="topNav">
                 <ul class="userNav">

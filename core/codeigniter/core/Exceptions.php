@@ -118,8 +118,8 @@ class CI_Exceptions {
     
     function show_maintenance($page = '', $log_error = TRUE)
 	{
-		$heading = settings_item('site.title');
-		$message = settings_item('site.maintenance_content');
+		$heading = settings_item('meta.title');
+		$message = settings_item('maintenance.content');
 		echo $this->show_error($heading, $message, 'error_maintenance', 200);
 		exit;
 	}

@@ -458,11 +458,11 @@ if ( ! function_exists('iif'))
 if(!function_exists('getAvatar')) {
     function getAvatar($url) {
         if(is_file($url)) {
-            return image_url($url);
+            return file_url($url);
         }
         else {
             $ci =&get_instance();
-            return image_url($ci->config->item('avatar_default'));
+            return file_url($ci->config->item('avatar_default'));
         }
     }
 }
