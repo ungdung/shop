@@ -167,7 +167,7 @@ class App_hooks
         // If the settings lib is not available, try to load it.
         if ( ! isset($this->ci->settings_lib))
         {
-            $this->ci->load->library('system/settings_lib');
+            $this->ci->load->library('settings/settings_lib');
         }
 
 		if ($this->ci->settings_lib->item('maintenance.mode') == 1 AND strpos(site_url($this->ci->uri->uri_string()),site_url(SITE_AREA))===false)

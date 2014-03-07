@@ -36,6 +36,7 @@ class Admin_Controller extends Authenticated_Controller
         define('MODULE_URL',SITE_AREA.'/'.$this->router->fetch_class().'/'.$this->router->fetch_module());
 
         // load the application lang file here so that the users language is known
+        $this->load->library('system/system_lib');
         $this->lang->load('application');
         $this->load->library('template');
         $this->load->library('assets');

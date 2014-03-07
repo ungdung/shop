@@ -14,10 +14,10 @@ var uploader = new plupload.Uploader({
     filters : {
         max_file_size : '1mb',
         mime_types: [
-            {title : "Image files", extensions : "<?php echo settings_item('gallery.upload'); ?>"}
+            {title : "Image files", extensions : "<?php echo system_item('upload.images'); ?>"}
             /*
-            {title : "Document files", extensions : "<?php echo settings_item('document.upload'); ?>"},
-            {title : "Media files", extensions : "<?php echo settings_item('media.upload'); ?>"},
+            {title : "Document files", extensions : "<?php echo system_item('upload.documents'); ?>"},
+            {title : "Media files", extensions : "<?php echo system_item('upload.media'); ?>"},
             */
         ]
     },

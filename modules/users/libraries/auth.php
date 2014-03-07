@@ -711,13 +711,6 @@ class Auth
 	 */
 	private function autologin()
 	{
-		$this->ci->load->library('system/settings_lib');
-
-		if ($this->ci->settings_lib->item('auth.allow_remember') == FALSE)
-		{
-			return;
-		}
-
 		$this->ci->load->helper('cookie');
 
 		$cookie = get_cookie('autologin', TRUE);
@@ -943,8 +936,9 @@ class Auth
     }
 
     public function name($id) {
-        return $this->ci->db->select('CONCAT(first_name, " ", last_name) as full_name',false)->where('id',$id)->get('users')->row('full_name');
-
+        $fullname = $this->ci->db->select('CONCAT(first_name, " ", last_name) as full_name',false)->where('id',$id)->get('users')->row('full_name');
+        if($fullname)
+            return $fullname;
     }
 
 

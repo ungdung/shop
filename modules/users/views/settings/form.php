@@ -84,9 +84,9 @@
             <div class="grid3"><label><?php echo lang('Avatar'); ?>:</label></div>
             <div class="grid9">
                 <input type="button" class="buttonM bBlue" value="<?php echo lang("Upload"); ?>" id="uploader" />
-                <input type="hidden" name="avatar" id="avatar" value="<?php echo is_file($file = set_value('avatar',isset($user) ? $user->avatar : false)) ? site_url($file) : ''; ?>" />
+                <input type="hidden" name="avatar" id="avatar" value="<?php echo is_file($file = set_value('avatar',isset($user) ? $user->avatar : false)) ? $file : ''; ?>" />
                 <?php if(is_file($file)): ?>
-                    <br /><img class="preview" src="<?php echo site_url($file); ?>" />
+                    <br /><img class="preview" src="<?php echo file_url($file); ?>" />
                 <?php endif; ?>
                 <div class="contentProgress mt8"><div class="barB" id="bar"></div></div>
             </div>
@@ -96,14 +96,14 @@
         <div class="formRow">
             <div class="grid3"><label><?php echo lang('Created By'); ?>:</label></div>
             <div class="grid9">
-                <?php echo isset($user) ? anchor(MODULE_URL.'/profile/'.$user->created_by,$this->auth->name($user->created_by)).' at '.datetimeToStr($user->created_on) : ''; ?>
+                <?php echo (isset($user) AND $fullname = $this->auth->name($user->created_by)) ? anchor(MODULE_URL.'/profile/'.$user->created_by,$fullname).' '.lang('at').' '.datetimeToStr($user->created_on) : ''; ?>
             </div>
             <div class="clear"></div>
         </div>
         <div class="formRow">
             <div class="grid3"><label><?php echo lang('Modify By'); ?>:</label></div>
             <div class="grid9">
-                <?php echo isset($user) ? anchor(MODULE_URL.'/profile/'.$user->modify_by,$this->auth->name($user->modify_by)).' at '.datetimeToStr($user->modify_on) : ''; ?>
+                <?php echo (isset($user) AND $fullname = $this->auth->name($user->modify_by)) ? anchor(MODULE_URL.'/profile/'.$user->modify_by,$fullname).' '.lang('at').' '.datetimeToStr($user->modify_on) : ''; ?>
             </div>
             <div class="clear"></div>
         </div>

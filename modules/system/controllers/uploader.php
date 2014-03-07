@@ -16,12 +16,13 @@ class Uploader extends Front_Controller {
 );
     public function __construct() {
         parent::__construct();
-
+        $this->load->library('system/system_lib');
         $htaccess="<Files ~ '\.(php|php3|php4|php5|phtml|pl|cgi|aspx|asp|xml|py)$'>
                      order deny,allow
                      deny from all
                     </Files>";
         $path = 'assets/uploads/';
+        umask(0);
         if($this->input->post('folder')) {
             $path .= md5($this->input->post('folder')).'/';
             if(!is_dir($path)) {
@@ -46,7 +47,7 @@ class Uploader extends Front_Controller {
             fwrite($fp, $htaccess);
             fclose($fp);
         }
-        $this->set_config(array('upload_path'=>$path,'allowed_types'=>$this->allowed_upload(),'max_size'=>settings_item('size.upload')));
+        $this->set_config(array('upload_path'=>$path,'allowed_types'=>$this->allowed_upload(),'max_size'=>system_item('upload.size')));
         if($this->input->post('type')) {
             $this->set_config('allowed_types',$this->allowed_upload($this->input->post('type')));
         }
@@ -95,13 +96,16 @@ class Uploader extends Front_Controller {
     private function allowed_upload($type='gallery') {
         switch($type) {
             case 'media':
-                return str_replace(",","|",settings_item('media.upload'));
+                return str_replace(",","|",system_item('upload.media'));
+            break;
+            case 'documents':
+                return str_replace(",","|",system_item('upload.documents'));
             break;
             case 'all':
-                return str_replace(",","|",settings_item('media.upload').','.settings_item('gallery.upload'));
+                return str_replace(",","|",system_item('upload.media').','.system_item('upload.images'));
             break;
             default:
-                return str_replace(",","|",settings_item('gallery.upload'));
+                return str_replace(",","|",system_item('upload.images'));
             break;
         }
     }

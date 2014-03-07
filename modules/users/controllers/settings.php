@@ -114,6 +114,7 @@ class Settings extends Admin_Controller {
         $this->form_validation->set_rules('first_name','lang:First Name','required|trim|strip_tags|xss_clean');
         $this->form_validation->set_rules('last_name','lang:Last Name','required|trim|strip_tags|xss_clean');
         $this->form_validation->set_rules('email','lang:Email','required|trim|strip_tags|xss_clean|unique[users.email'.$extra_unique_rule.']');
+        $this->form_validation->set_rules('avatar','lang:Avatar','trim|strip_tags|xss_clean');
         if($id) {
             $this->form_validation->set_rules('password','lang:Password','trim|strip_tags|xss_clean');
             $this->form_validation->set_rules('pass_confirm','lang:Pass Confirm','trim|strip_tags|xss_clean|matches[password]');
