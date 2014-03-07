@@ -724,7 +724,8 @@ class BF_Model extends CI_Model
             }
         }
 
-        if(!$data = $this->assData($data)) {
+        $data = $this->assData($data);
+        if(empty($data)) {
             return false;
         }
 

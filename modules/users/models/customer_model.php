@@ -36,5 +36,11 @@ class Customer_model extends BF_Model {
         return parent::find_by(array('expiry_date >'=>date("Y-m-d"),'customer.active'=>1));
     }
 
+    public function getLanguageAvailable() {
+        return $this->db->select('customer_language.is_default, language.language_id, language.code, language.name')->join('customer_language','customer_language.language_id=language.language_id')
+                ->where(array('customer_id'=>CUSTOMER_ID,'language.active'=>1,'is_default'=>0))
+                ->get('language')->result();
+    }
+
 
 } 

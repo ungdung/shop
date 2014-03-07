@@ -45,3 +45,5 @@ $lang['Settings']           =   'Cài đặt';
 $lang['Created By']         =   'Được tạo bởi';
 $lang['Modify By']          =   'Được sửa bởi';
 $lang['at']                 =   'lúc';
+
+$lang['Translate to']       =   'Dịch sang';

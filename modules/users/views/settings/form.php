@@ -5,7 +5,7 @@
     </div>
 <?php endif; ?>
 
-<?php echo form_open($this->uri->uri_string(), 'id="validates"'); ?>
+<?php echo form_open($this->uri->uri_string(), 'id="validate"'); ?>
 <div class="fluid">
     <div class="widget grid6">
         <div class="whead"><h6><?php echo lang('Basic Information'); ?></h6><div class="clear"></div> </div>

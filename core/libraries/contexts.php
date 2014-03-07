@@ -23,12 +23,12 @@ class Contexts
         $site_url=site_url(SITE_AREA.'/'.self::$ci->uri->segment(2).'/'.self::$ci->uri->segment(3));
         $role=self::$ci->auth->role_id();
         $role='"'.$role.'"';
-        $menus=self::$ci->db->where(array('active'=>1,'parent'=>0))->like('roles',$role)->order_by('order')->get('menu')->result();
+        $menus=self::$ci->db->where(array('active'=>1,'parent'=>0))->like('roles',$role)->order_by('order')->get('menu_backend')->result();
         $nav=null;
         if(!empty($menus)) {
             $nav    =   "<ul class='{$class}'>";
             foreach($menus as $k => $menu) {
-                $items=self::$ci->db->where(array('active'=>1,'parent'=>$menu->id))->like('roles',$role)->order_by('order')->get('menu')->result();
+                $items=self::$ci->db->where(array('active'=>1,'parent'=>$menu->id))->like('roles',$role)->order_by('order')->get('menu_backend')->result();
                 $subnav=null;
                 $cls_s = false;
                 if(!empty($items)) {

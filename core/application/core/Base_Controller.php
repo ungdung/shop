@@ -72,6 +72,7 @@ class Base_Controller extends CI_Controller
         $this->lang->load('general');
         $this->load->model('users/customer_model','customer_model');
         $this->load->library('settings/settings_lib');
+        Template::set('languageAvailable',$this->customer_model->getLanguageAvailable());
 		// Make sure no assets in up as a requested page or a 404 page.
 		if ( ! preg_match('/\.(gif|jpg|jpeg|png|css|js|ico|shtml)$/i', $this->uri->uri_string()))
 		{

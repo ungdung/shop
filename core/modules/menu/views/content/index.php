@@ -1,56 +1,92 @@
-<?php echo form_open(); ?>
-    <div class="widget ">
-        <div class="whead">
-            <span class="titleIcon check">
-                <input type="checkbox" id="titleCheck" name="titleCheck" />
-            </span>
-            <h6><?php echo $toolbar_title; ?></h6>
-            <div class="clear"></div>
-        </div>
-        <table width="100%" cellspacing="0" cellpadding="0" id="checkAll" class="tDefault tMedia checkAll check">
-            <thead>
-            <tr>
-                <td><img alt="" src="<?php echo Template::theme_url('images/elements/other/tableArrows.png'); ?>" /></td>
-                <td><?php echo lang('Name'); ?></td>
-                <td><?php echo lang('URL'); ?></td>
-                <td style="width: 10em"><?php echo lang('us_status'); ?></td>
-            </tr>
-            </thead>
-            <?php if (!empty($results)) : ?>
-                <tfoot>
-                <tr>
-                    <td colspan="8">
-                        <div class="itemActions">
-                            <label>Apply action:</label>
-                            <select name="action" id="action">
-                                <option value="">Select action...</option>
-                                <option value="Active">Active</option>
-                                <option value="Deactive">Deactive</option>
-                                <option value="Delete">Delete</option>
-                            </select>
-                            <input type="submit" value="Apply" class="buttonS bGreen" />
-                        </div>
-                    </td>
-                </tr>
-                </tfoot>
-            <?php endif; ?>
-
-            <tbody>
-            <?php if (!empty($results)) : ?>
-                <?php foreach ($results as $result): ?>
-                    <tr id="row_<?php echo $result->id; ?>">
-                        <td><input type="checkbox" id="titleCheck2" name="checked[]" value="<?php echo $result->id; ?>" /></td>
-                        <td><?php echo anchor(MODULE_URL.'/edit/'. $result->id,$result->name); ?></td>
-                        <td><?php echo anchor(site_url($result->url),site_url($result->url)); ?></td>
-                        <td><?php echo showStatus($result->active); ?></td>
-                    </tr>
-                <?php endforeach; ?>
-            <?php else: ?>
-                <tr>
-                    <td colspan="8" align="center">No item found that match your selection.</td>
-                </tr>
-            <?php endif; ?>
-            </tbody>
-        </table>
+<?php if (validation_errors()) : ?>
+    <div class="nNote error">
+        <p>Please fix the following errors :</p>
+        <?php echo validation_errors(); ?>
     </div>
-<?php echo form_close(); ?>
+<?php endif; ?>
+
+<div class="fluid">
+    <?php echo form_open($this->uri->uri_string(), 'id="validate"'); ?>
+    <div class="grid4">
+        <div class="widget">
+            <div class="whead"><h6><?php echo lang('Basic Information'); ?></h6><div class="clear"></div> </div>
+
+            <div class="formRow">
+                <div class="grid3"><label><?php echo lang('Name'); ?>:</label></div>
+                <div class="grid9">
+                    <input type="text" name="name" id="name" class="validate[required]" value="<?php echo set_value('name',isset($menu) ? $menu->name : ''); ?>" />
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            <div class="formRow">
+                <div class="grid3"><label><?php echo lang('URL'); ?>:</label></div>
+                <div class="grid9">
+                    <input type="text" name="url" id="url" value="<?php echo set_value('name',isset($menu) ? $menu->url : ''); ?>" />
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            <div class="formRow">
+                <div class="grid3"><label><?php echo lang('Image'); ?>:</label></div>
+                <div class="grid9">
+                    <input type="button" class="buttonM bBlue" value="<?php echo lang("Upload"); ?>" id="uploader" />
+                    <input type="hidden" name="image" id="image" value="<?php echo is_file($file = set_value('image',isset($menu) ? $menu->image : false)) ? $file : ''; ?>" />
+                    <?php if(is_file($file)): ?>
+                        <br /><img class="preview" src="<?php echo file_url($file); ?>" />
+                    <?php endif; ?>
+                    <div class="contentProgress mt8"><div class="barB" id="bar"></div></div>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            <div class="formRow">
+                <div class="grid3"><label><?php echo lang('Target'); ?>:</label></div>
+                <div class="grid9">
+                    <select name="target" id="target" class="validate[required]">
+                        <option value="_self">Self</option>
+                        <option value="_top">Top</option>
+                        <option value="_blank">Blank</option>
+                    </select>
+                    <script type="text/javascript">
+                        cbo_Selected('target','<?php echo set_value('name',isset($menu) ? $menu->target : ''); ?>');
+                    </script>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            <div class="formRow">
+                <div class="grid3"><label><?php echo lang('Parent'); ?>:</label></div>
+                <div class="grid9">
+                    <select name="parent_id" id="parent_id" class="validate[required]">
+                        <option value="0">-- -- Root -- --</option>
+                        <?php echo $this->menu_model->buildOptionsCatalogHTML(isset($menu) ? $menu->menu_id : false); ?>
+                    </select>
+                    <script type="text/javascript">
+                        cbo_Selected('parent_id','<?php echo set_value('parent_id',isset($menu) ? $menu->parent_id : 0); ?>');
+                    </script>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            <div class="formRow">
+                <div class="grid12">
+                    <input type="submit" name="submit" value="<?php echo lang("Save"); ?>" class="buttonM bBlue formSubmit" />
+                    <input type="submit" name="submit" value="<?php echo lang("Create New"); ?>" class="buttonM bBlue formSubmit" style="margin-right:20px;" />
+                </div>
+                <div class="clear"></div>\
+            </div>
+        </div>
+    </div>
+    <?php echo form_close(); ?>
+    <div class="widget grid8">
+        <div class="whead"><h6><?php echo lang('Order Menu'); ?></h6><div class="clear"></div> </div>
+        <div class="body">
+
+            <div class="dd" id="nestable">
+                <?php echo $this->menu_model->buildListCatalogHTML(); ?>
+            </div>
+
+        </div>
+    </div>
+</div>
