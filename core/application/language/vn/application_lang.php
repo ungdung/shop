@@ -41,4 +41,7 @@ $lang['No New Activity']    =   'Không có cập nhật mới';
 
 $lang['Dashboard']          =   'Bảng điều khiển';
 $lang['Users']              =   'Tài khoản';
-$lang['Settings']             =   'Cài đặt';
+$lang['Settings']           =   'Cài đặt';
+$lang['Created By']         =   'Được tạo bởi';
+$lang['Modify By']          =   'Được sửa bởi';
+$lang['at']                 =   'lúc';

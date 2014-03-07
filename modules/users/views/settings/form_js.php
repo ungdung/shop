@@ -44,9 +44,9 @@ var uploader = new plupload.Uploader({
                     //single upload
                     $('#avatar').val(res.file_url);
                     if($('.preview').get(0)) {
-                        $('.preview').attr('src','<?php echo image_url(); ?>'+res.file_url);
+                        $('.preview').attr('src','<?php echo file_url(); ?>'+res.file_url);
                     } else {
-                        $('#avatar').after('<br /><img class="preview" src="<?php echo image_url(); ?>'+res.file_url+'" />');
+                        $('#avatar').after('<br /><img class="preview" src="<?php echo file_url(); ?>'+res.file_url+'" />');
                     }
                 }
                 else {

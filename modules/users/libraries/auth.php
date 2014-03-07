@@ -191,7 +191,6 @@ class Auth
 			'user_id'	=> $this->user_id(),
 			'role_id'	=> $this->role_id()
 		);
-        unset($_SESSION['ckfinder']);
 		// Destroy the autologin information
 		$this->delete_autologin();
 

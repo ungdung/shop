@@ -54,33 +54,49 @@ define('WEB_URL','cuahangtructuyen.vn');
 
 define('WEB_SERVICE','http://duyank.com');
 
+
+$data = array_keys($_GET);
+if(!empty($data)) {
+    $data = explode("/",substr(array_shift($data),1,-1));
+}
+
+
+$useDomain = false;
 if(isset($_SERVER['SERVER_NAME']) AND strpos(WEB_URL,$_SERVER['SERVER_NAME'])===false) {
-    define('CUSTOMER_PATH','');
+    $useDomain = true;
 }
-else {
-    $customer = @array_shift(explode("/",substr(array_shift(array_keys($_GET)),1)));
-    define('CUSTOMER',$customer);
-    define('CUSTOMER_PATH',$customer.'/');
-    unset($customer);
-}
+
+
+
 require_once( BASEPATH .'database/DB'. EXT );
 
 $db =& DB();
 $db->select('customer.*');
 $db->join('domain','domain.customer_id=customer.customer_id','left');
-if(defined('CUSTOMER')) {
-    $db->where('username',CUSTOMER);
+if(isset($customer)) {
+    $db->where('username',(isset($data[0]) ? $data[0] : ''));
 }
 else {
     $db->where(array('domain'=>$_SERVER['HTTP_HOST'],'domain.active'=>1));
 }
-
 $db->where(array('expiry_date >'=>date("Y-m-d"),'customer.active'=>1));
-$customer = $db->get('customer')->row('customer_id');
+$customer = $db->get('customer')->row();
+
+
+
 if(!$customer) {
     redirect(WEB_SERVICE);
 } else {
-    define('CUSTOMER_ID',$customer);
+    define('CUSTOMER_ID',$customer->customer_id);
+    define('CUSTOMER',$customer->username);
+    if($useDomain) {
+
+        define('CUSTOMER_PATH','');
+    }
+    else {
+
+        define('CUSTOMER_PATH',$customer.'/');
+    }
 }
 /*
 	The 'LOGIN_URL' and 'REGISTER_URL' constant allows changing of the url where the login page is accessible
