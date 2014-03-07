@@ -17,3 +17,4 @@ $lang['Mode']               =   'Chế độ';
 $lang['Content']            =   'Nội dung';
 $lang['On']                 =   'Mở';
 $lang['Off']                =   'Tắt';
+$lang['Language']           =   'Ngôn ngữ';

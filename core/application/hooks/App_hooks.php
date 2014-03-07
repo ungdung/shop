@@ -169,8 +169,7 @@ class App_hooks
         {
             $this->ci->load->library('settings/settings_lib');
         }
-
-		if ($this->ci->settings_lib->item('maintenance.mode') == 1 AND strpos(site_url($this->ci->uri->uri_string()),site_url(SITE_AREA))===false)
+		if ($this->ci->settings_lib->item('maintenance.mode') == 1 AND strpos(file_url($this->ci->uri->uri_string()),site_url(SITE_AREA))===false)
 		{
             $segment = $this->ci->uri->segment(1);
 			if($segment!='login' AND $segment!='logout' AND $segment!='uploader') {

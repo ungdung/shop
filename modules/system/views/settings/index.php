@@ -35,7 +35,19 @@
         </div>
 
         <div class="formRow">
-            <div class="grid12"><input type="submit" name="webConfig" value="<?php echo lang("Submit"); ?>" class="buttonM bBlue formSubmit" /></div><div class="clear"></div>
+            <div class="grid3"><label><?php echo lang("Language"); ?>:</label></div>
+            <div class="grid9">
+                <select name="language" id="language" class="validate[required]">
+                    <?php foreach($languages as $language): ?>
+                        <option value="<?php echo $language->language_id; ?>"><?php echo $language->name; ?> (<?php echo $language->code; ?>)</option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
+            <div class="clear"></div>
+        </div>
+
+        <div class="formRow">
+            <div class="grid12"><input type="submit" name="webConfig" value="<?php echo lang("Save"); ?>" class="buttonM bBlue formSubmit" /></div><div class="clear"></div>
         </div>
     </div>
 </div>
@@ -78,7 +90,7 @@
 
 
         <div class="formRow">
-            <div class="grid12"><input type="submit" name="btnMaintenance" value="<?php echo lang("Submit"); ?>" class="buttonM bBlue formSubmit" /></div><div class="clear"></div>
+            <div class="grid12"><input type="submit" name="btnMaintenance" value="<?php echo lang("Save"); ?>" class="buttonM bBlue formSubmit" /></div><div class="clear"></div>
         </div>
     </div>
 </div>

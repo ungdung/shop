@@ -32,6 +32,7 @@ class Settings extends Admin_Controller
             }
         }
         $settings = $this->settings_lib->find_all();
+        Template::set('languages',$this->db->get('language')->result());
 		Template::set('settings', $settings);
 		Template::render();
 

@@ -83,39 +83,25 @@ else {
 $db->where(array('expiry_date >'=>date("Y-m-d"),'customer.active'=>1));
 $customer = $db->get('customer')->row();
 
-
 if(!$customer) {
     //redirect(WEB_SERVICE);
 } else {
     define('CUSTOMER_ID',$customer->customer_id);
     define('CUSTOMER',$customer->username);
 
-    //check language
-    $useLanguage = false;
     if($useDomain) {
-        if(isset($data[0])) {
-            $language = $data[0];
-            $useLanguage = true;
-        }
         $path = '';
     }
     else {
-        if(isset($data[1])) {
-            $language = $data[1];
-            $useLanguage = true;
-        }
         $path = $customer->username.'/';
     }
-    if(!$useLanguage OR ($useLanguage==true AND !$db->join('language','language.language_id=customer_language.language_id')->where(array('active'=>1,'code'=>$language,'customer_id'=>CUSTOMER_ID))->get('customer_language')->row())) {
-        $language = $db->join('language','language.language_id=customer_language.language_id')->where(array('active'=>true,'is_default'=>true,'customer_id'=>CUSTOMER_ID))->get('customer_language')->row('code');
-        $useLanguage = false;
-    }
+
+    $language = $db->join('language','language.language_id=customer_language.language_id')->where(array('customer_id'=>CUSTOMER_ID))->get('customer_language')->row('code');
+
     define('LANGUAGE',$language);
-    if($useLanguage) {
-        $path .= $language.'/';
-    }
+
     define('CUSTOMER_PATH',$path);
-    unset($language,$useLanguage,$useDomain,$customer,$path);
+    unset($language,$useDomain,$customer,$path);
 
 }
 /*
