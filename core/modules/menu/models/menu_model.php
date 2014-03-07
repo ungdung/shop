@@ -13,7 +13,7 @@ class Menu_model extends BF_Model
     protected $table_name = 'menu';
     protected $key = 'id';
 
-    
+
 
     function __construct() {
         parent::__construct();

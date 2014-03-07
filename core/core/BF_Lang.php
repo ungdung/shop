@@ -32,11 +32,11 @@ class BF_Lang extends CI_Lang {
 
         unset($matches);
 
-        $config =& get_config();
+
 
         if ($idiom == '')
         {
-            $deft_lang = ( ! isset($config['language'])) ? 'english' : $config['language'];
+            $deft_lang = LANGUAGE;
             $idiom = ($deft_lang == '') ? 'english' : $deft_lang;
         }
 

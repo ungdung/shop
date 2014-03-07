@@ -57,7 +57,7 @@ define('WEB_SERVICE','http://duyank.com');
 
 $data = array_keys($_GET);
 if(!empty($data)) {
-    $data = explode("/",substr(array_shift($data),1,-1));
+    $data = explode("/",substr(array_shift($data),1));
 }
 
 
@@ -68,12 +68,13 @@ if(isset($_SERVER['SERVER_NAME']) AND strpos(WEB_URL,$_SERVER['SERVER_NAME'])===
 
 
 
+
 require_once( BASEPATH .'database/DB'. EXT );
 
 $db =& DB();
 $db->select('customer.*');
 $db->join('domain','domain.customer_id=customer.customer_id','left');
-if(isset($customer)) {
+if(!$useDomain) {
     $db->where('username',(isset($data[0]) ? $data[0] : ''));
 }
 else {
@@ -83,20 +84,39 @@ $db->where(array('expiry_date >'=>date("Y-m-d"),'customer.active'=>1));
 $customer = $db->get('customer')->row();
 
 
-
 if(!$customer) {
-    redirect(WEB_SERVICE);
+    //redirect(WEB_SERVICE);
 } else {
     define('CUSTOMER_ID',$customer->customer_id);
     define('CUSTOMER',$customer->username);
-    if($useDomain) {
 
-        define('CUSTOMER_PATH','');
+    //check language
+    $useLanguage = false;
+    if($useDomain) {
+        if(isset($data[0])) {
+            $language = $data[0];
+            $useLanguage = true;
+        }
+        $path = '';
     }
     else {
-
-        define('CUSTOMER_PATH',$customer.'/');
+        if(isset($data[1])) {
+            $language = $data[1];
+            $useLanguage = true;
+        }
+        $path = $customer->username.'/';
     }
+    if(!$useLanguage OR ($useLanguage==true AND !$db->join('language','language.language_id=customer_language.language_id')->where(array('active'=>1,'code'=>$language,'customer_id'=>CUSTOMER_ID))->get('customer_language')->row())) {
+        $language = $db->join('language','language.language_id=customer_language.language_id')->where(array('active'=>true,'is_default'=>true,'customer_id'=>CUSTOMER_ID))->get('customer_language')->row('code');
+        $useLanguage = false;
+    }
+    define('LANGUAGE',$language);
+    if($useLanguage) {
+        $path .= $language.'/';
+    }
+    define('CUSTOMER_PATH',$path);
+    unset($language,$useLanguage,$useDomain,$customer,$path);
+
 }
 /*
 	The 'LOGIN_URL' and 'REGISTER_URL' constant allows changing of the url where the login page is accessible
