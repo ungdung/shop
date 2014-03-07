@@ -93,6 +93,10 @@ class Admin_Controller extends Authenticated_Controller
                         $column = preg_replace("/__X__(.+)+$/", "",$this->input->get('mDataProp_'.$i));
                         $column = str_replace("__K__",".",$column);
                     }
+                    else {
+                        $column = $_GET['mDataProp_'.$i];
+                    }
+
                     $this->kTable['order_by'] = $column;
                     if(preg_match("#(.*) as (.*)#",$this->kTable['order_by'],$result)) {
                         $this->kTable['order_by'] = $result[1];

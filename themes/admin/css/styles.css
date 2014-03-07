@@ -2353,3 +2353,6 @@ table .dropdown-menu.pull-right { right: auto; left: 0; }
     display: none;
 }
 .copyright {position: absolute; bottom: 10px; z-index: 9999;right:10px;}
+.l-preview {
+    width:100%;
+}
