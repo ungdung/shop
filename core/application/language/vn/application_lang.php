@@ -10,7 +10,6 @@ $lang['Save']               =   'Lưu';
 $lang['Upload']             =   'Tải lên';
 
 /****** LABEL *******/
-$lang['Dashboard']          =   'Bảng điều khiển';
 $lang['My Profile']         =   'Thông tin cá nhân';
 $lang['Logout']             =   'Thoát';
 $lang['Basic Information']  =   'Thông tin cơ bản';
@@ -36,3 +35,10 @@ $lang['has logged']         =   'đã đăng nhập';
 $lang['created a user']     =   'đã tạo một tài khoản';
 $lang['updated a user']     =   'đã cập nhật một tài khoản';
 $lang['No New Activity']    =   'Không có cập nhật mới';
+
+
+/** MENU  **/
+
+$lang['Dashboard']          =   'Bảng điều khiển';
+$lang['Users']              =   'Tài khoản';
+$lang['Settings']             =   'Cài đặt';

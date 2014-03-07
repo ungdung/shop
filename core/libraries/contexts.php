@@ -38,7 +38,7 @@ class Contexts
                         $url=site_url($item->url);
                         if(is_int(strpos($url,$site_url))) $cls_s=true;
                         $name=ucwords($item->name);
-                        $subnav    .=  "<li><a href='{$url}' target='{$target}' title='{$name}'>{$name}</a></li>";
+                        $subnav    .=  "<li><a href='{$url}' target='{$target}' title='".lang($name)."'>".lang($name)."</a></li>";
                     }
                     $subnav    .=  '</ul>';
                 }
@@ -51,7 +51,7 @@ class Contexts
                 else $cls='';
                 if(is_int(strpos(site_url($menus[0]->url),$site_url)) AND $k!=0) $cls=''; 
                 $image = (is_file($menu->image))  ?  file_url($menu->image)  : '';
-                $nav    .=  "<li class='{$cls}'><a href='{$url}' title='{$name}' target='{$target}' class='{$subclass}'><img src='{$image}' style='max-width:23px; max-height:23px;' /><span>{$name}</span></a>";
+                $nav    .=  "<li class='{$cls}'><a href='{$url}' title='".lang($name)."' target='{$target}' class='{$subclass}'><img src='{$image}' style='max-width:23px; max-height:23px;' /><span>".lang($name)."</span></a>";
                 $nav    .=  $subnav;
                 $nav    .=  "</li>";
             }
