@@ -62,7 +62,7 @@
                         <option value="0"><?php echo lang('Deactive'); ?></option>
                     </select>
                     <script type="text/javascript">
-                        cbo_Selected('active','<?php echo set_value('active',isset($slider) ? $slider->active : 1); ?>');
+                        cbo_Selected('active','<?php echo set_value('active',isset($category) ? $category->active : 1); ?>');
                     </script>
                 </div>
                 <div class="clear"></div>
@@ -94,8 +94,13 @@
 
             <div class="formRow">
                 <div class="grid12">
+                    <?php if(isset($category)): ?>
                     <input type="submit" name="submit" value="<?php echo lang("Save"); ?>" class="buttonM bBlue formSubmit" />
+                    <?php endif; ?>
                     <input type="submit" name="submit" value="<?php echo lang("Create New"); ?>" class="buttonM bBlue formSubmit" style="margin-right:20px;" />
+                    <?php if(isset($category)): ?>
+                    <a href="<?php echo site_url(MODULE_URL.'/category/'.$category->category_id.'/delete    '); ?>" onclick="return confirm('<?php echo lang('Are you sure?'); ?>');" class="buttonM bRed formSubmit" style="margin-right:20px;"><?php echo lang('Delete'); ?></a>
+                    <?php endif; ?>
                 </div>
                 <div class="clear"></div>
             </div>

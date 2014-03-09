@@ -70,9 +70,6 @@ class Content extends Admin_Controller {
     }
 
     public function edit($id = false) {
-        if(!$id) {
-            $id = $this->auth->user_id();
-        }
         $this->auth->restrict('Permission.News.Manage');
         if(!$news = $this->news_model->find($id)) {
             Template::set_message(lang('News Not Found'),'warning');
@@ -117,10 +114,22 @@ class Content extends Admin_Controller {
         exit(json_encode($result));
     }
 
-    public function category($id=false) {
+    public function category($id=false,$type=null) {
+        $this->auth->restrict('Permission.News.Manage');
         $category = $this->news_category_model->find($id);
         if($category) {
             Template::set('category',$category);
+        }
+        if($type=='delete') {
+            $result = $this->news_category_model->delete($id);
+            if($result) {
+                Template::set_message(lang('Delete Success'),'success');
+                Template::redirect(MODULE_URL.'/category');
+            }
+            else {
+                Template::set_message(lang('Delete Error'),'error');
+                Template::redirect(MODULE_URL.'/category');
+            }
         }
         if($this->input->post()) {
             if($_POST['submit']==lang('Create New') AND $id) {
@@ -143,6 +152,7 @@ class Content extends Admin_Controller {
     } //end function index
 
     public function sorting() {
+        $this->auth->restrict('Permission.News.Manage');
         $data = $this->input->post('category');
         $this->doSorting($data);
     }

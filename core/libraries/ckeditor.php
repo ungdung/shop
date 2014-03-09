@@ -1,5 +1,3 @@
-
-
 <?php
 /*
 * Copyright (c) 2003-2011, CKSource - Frederico Knabben. All rights reserved.

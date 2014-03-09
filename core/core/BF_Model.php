@@ -79,7 +79,7 @@ class BF_Model extends CI_Model
      * @var string
      * @access protected
      */
-    protected $deleted_field = 'deleted_by';
+    protected $deleted_field = 'deleted';
 
 	/**
 	 * Whether or not to auto-fill a 'created_on' field on inserts.
@@ -370,6 +370,8 @@ class BF_Model extends CI_Model
      * @var bool
      */
     protected $customer_id = false;
+
+    protected $active_field = 'active';
     //--------------------------------------------------------------------
 
 	/**
@@ -432,6 +434,9 @@ class BF_Model extends CI_Model
         if($this->customer_id) {
             $this->db->where($this->table_name . '.customer_id',CUSTOMER_ID);
         }
+        if($this->soft_deletes) {
+            $this->db->where($this->table_name.'.deleted',0);
+        }
 		$query = $this->db->get_where($this->table_name, array($this->table_name . '.' . $this->key => $id));
 
 		if ( ! $query->num_rows())
@@ -472,6 +477,9 @@ class BF_Model extends CI_Model
 
         if($this->customer_id) {
             $this->db->where($this->table_name . '.customer_id',CUSTOMER_ID);
+        }
+        if($this->soft_deletes) {
+            $this->db->where($this->table_name.'.deleted',0);
         }
 		$query = $this->db->get($this->table_name);
 
@@ -844,13 +852,18 @@ class BF_Model extends CI_Model
 
 			if ($this->log_user === TRUE)
 			{
-				$data[$this->deleted_by_field] = $this->auth->user_id();
+				$data[$this->modified_by_field] = $this->auth->user_id();
 			}
-
+            if($this->customer_id) {
+                $this->db->where('customer_id',CUSTOMER_ID);
+            }
 			$result = $this->db->update($this->table_name, $data);
 		}
 		else
 		{
+            if($this->customer_id) {
+                $this->db->where('customer_id',CUSTOMER_ID);
+            }
 			$result = $this->db->delete($this->table_name);
 		}
 
@@ -1885,13 +1898,22 @@ class BF_Model extends CI_Model
 
 
     public function _activate($ids=array()) {
-        $this->db->where_in($this->key,$ids)->update($this->table_name,array('active'=>1));
+        if($this->customer_id) {
+            $this->db->where('customer_id',CUSTOMER_ID);
+        }
+        $this->db->where_in($this->key,$ids)->update($this->table_name,array($this->active_field=>1));
     }
     public function _deactivate($ids=array()) {
-        $this->db->where_in($this->key,$ids)->update($this->table_name,array('active'=>0));
+        if($this->customer_id) {
+            $this->db->where('customer_id',CUSTOMER_ID);
+        }
+        $this->db->where_in($this->key,$ids)->update($this->table_name,array($this->active_field=>0));
     }
     public function _delete($ids=array()) {
-        $this->db->where_in($this->key,$ids)->delete($this->table_name);
+        if($this->customer_id) {
+            $this->db->where('customer_id',CUSTOMER_ID);
+        }
+        $this->db->where_in($this->key,$ids)->update($this->table_name,array('deleted'=>1));
     }
 
     public function assData($data = array()) {

@@ -18,6 +18,7 @@ class Activity_model extends BF_Model {
     protected $set_created = false;
 
     protected $set_modified = false;
+    protected $soft_deletes = false;
 
     public function __construct() {
         parent::__construct();

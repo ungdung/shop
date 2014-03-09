@@ -10,7 +10,7 @@ class News_model extends BF_Model {
 
     protected $table_name = 'news';
     protected $key = 'news_id';
-    protected $target_url = '/content/news/detail/';
+    protected $target_url = '/content/news/edit/';
     protected $customer_id =true;
 
     public function __construct()

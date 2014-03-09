@@ -19,12 +19,17 @@
             <div class="formRow">
                 <div class="grid3"><label><?php echo lang('Category'); ?>:<span class="req">*</span></label></div>
                 <div class="grid9">
+                    <?php $text = $this->news_category_model->buildOptionsCatalogHTML();
+                    if($text!=''): ?>
                     <select name="news_category_id" id="news_category_id" class="validate[required]">
-                        <?php echo $this->news_category_model->buildOptionsCatalogHTML(); ?>
+                        <?php echo $text; ?>
                         <script type="text/javascript">
                             cbo_Selected('news_category_id','<?php echo set_value('news_category_id',isset($news) ? $news->news_category_id : ''); ?>');
                         </script>
                     </select>
+                    <?php else:
+                    echo lang('You need create category before');
+                    endif; ?>
                 </div>
                 <div class="clear"></div>
             </div>

@@ -1,10 +1,9 @@
 <?php
-
 header('P3P: CP="IDC DSP COR CURa ADMa OUR IND PHY ONL COM STA"');
 session_start();
 $minTimeToFlood = 1; // The min seconds to be consider an flood attempt
 $maxAllowedAttempts = 35;
-$bannedSec = 1200;
+$bannedSec = 10;
 $attempts_time_out = 10;
 $last_refresh = isset($_SESSION['last_refresh']) ? $_SESSION['last_refresh'] : false;
 $last_attempt = isset($_SESSION['last_attempt']) ? $_SESSION['last_attempt']: false;
