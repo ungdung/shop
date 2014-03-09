@@ -371,6 +371,7 @@ class CI_Router {
 			{
 				if (is_file($file = $location . $module .'/config/routes.php'))
 				{
+
 					include ($file);
 
 					$route = (!isset($route) or !is_array($route)) ? array() : $route;

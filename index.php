@@ -1,6 +1,40 @@
 <?php
 
 header('P3P: CP="IDC DSP COR CURa ADMa OUR IND PHY ONL COM STA"');
+session_start();
+$minTimeToFlood = 1; // The min seconds to be consider an flood attempt
+$maxAllowedAttempts = 35;
+$bannedSec = 1200;
+$attempts_time_out = 10;
+$last_refresh = isset($_SESSION['last_refresh']) ? $_SESSION['last_refresh'] : false;
+$last_attempt = isset($_SESSION['last_attempt']) ? $_SESSION['last_attempt']: false;
+$attempts = isset($_SESSION['flood_attempts']) ? $_SESSION['flood_attempts'] : false;
+$bannedAt = isset($_SESSION['banned_at']) ? $_SESSION['banned_at'] : false;
+// grabbing the last refresh
+$_SESSION['last_refresh'] = time();
+
+// if banned exitst AND the user is yet banned OR if the attempts are bigger that the allowed
+if ( ( $bannedAt && (time() - $bannedAt) < $bannedSec ) || ($attempts > $maxAllowedAttempts) )
+{
+    if ($attempts > 0)
+    {
+        $_SESSION['banned_at'] = time();
+        $_SESSION['flood_attempts'] = 0;
+    }
+    die("Bạn duyệt web quá nhanh. Vui lòng không spam");
+}
+if ((time() - $last_refresh ) <= $minTimeToFlood)
+{
+    $_SESSION['flood_attempts'] += 1;
+    $_SESSION['last_attempt'] = time();
+}
+else
+{
+    if ($last_attempt && (time() - $last_attempt) > $attempts_time_out )
+    {
+        $_SESSION['flood_attempts'] = 0;
+    }
+}
 /*
  *---------------------------------------------------------------
  * APPLICATION ENVIRONMENT

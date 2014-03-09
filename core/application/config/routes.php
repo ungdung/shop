@@ -43,6 +43,13 @@ Route::prefix(API_AREA, function(){
 
 $route[CUSTOMER_PATH.SITE_AREA]	= 'admin/home';
 
+
+$route['product/content/category/(:any)/(:any)/(:any)/(:any)']	= "category/$1/$2/$3/$4";
+$route['product/content/category/(:any)/(:any)/(:any)']	= "category/$1/$2/$3";
+$route['product/content/category/(:any)/(:any)']	= "category/$1/$2";
+$route['product/content/category/(:any)'] = "category/$1";
+$route['product/content/category']	= "category";
+
 $route = Route::map($route);
 
 /* End of file routes.php */

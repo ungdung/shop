@@ -2209,7 +2209,7 @@ ul.userNav { display: none; }
 .user > span { display: none; }
 .userSearch { display: block; }
 .under .widget [class*="grid"] { width: 100%; margin: 5px 0; }
-.formRow [class*="grid"]:first-child label { float: none; display: inline-block; margin-top: -8px; margin-bottom: 0px; padding: 0; }
+.formRow [class*="grid"]:first-child label { float: none; display: inline-block; margin-bottom: 0px; padding: 0; }
 .formRow [class*="grid"] label { float: left; }
 .ibutton-container label { float: none!important; }
 .contentTop {  }
@@ -2354,5 +2354,8 @@ table .dropdown-menu.pull-right { right: auto; left: 0; }
 }
 .copyright {position: absolute; bottom: 10px; z-index: 9999;right:10px;}
 .l-preview {
+    width:100%;
+}
+.template img {
     width:100%;
 }

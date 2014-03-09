@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 07, 2014 at 07:40 PM
+-- Generation Time: Mar 09, 2014 at 09:10 AM
 -- Server version: 5.5.34
 -- PHP Version: 5.4.22
 
@@ -51,7 +51,7 @@ CREATE TABLE IF NOT EXISTS `efox_activity` (
   `read` tinyint(1) NOT NULL DEFAULT '0',
   `customer_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`activity_id`,`browser`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=827 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=867 ;
 
 --
 -- Dumping data for table `efox_activity`
@@ -884,7 +884,47 @@ INSERT INTO `efox_activity` (`activity_id`, `module`, `action`, `user_id`, `targ
 (823, 'slider', 'created a slider', 1, 2, '/content/slider/detail/', 'Firefox', '27.0', '127.0.0.1', 'Windows 7', '2014-03-08 01:19:53', 0, 1),
 (824, 'slider', 'created a slider', 1, 3, '/content/slider/detail/', 'Firefox', '27.0', '127.0.0.1', 'Windows 7', '2014-03-08 01:20:28', 0, 1),
 (825, 'slider', 'updated a slider', 1, 3, '/content/slider/detail/', 'Firefox', '27.0', '127.0.0.1', 'Windows 7', '2014-03-08 01:20:33', 0, 1),
-(826, 'slider', 'updated a slider', 1, 3, '/content/slider/detail/', 'Firefox', '27.0', '127.0.0.1', 'Windows 7', '2014-03-08 01:20:36', 0, 1);
+(826, 'slider', 'updated a slider', 1, 3, '/content/slider/detail/', 'Firefox', '27.0', '127.0.0.1', 'Windows 7', '2014-03-08 01:20:36', 0, 1),
+(827, 'users', 'has logged', 1, 1, '/settings/users/profile/', 'Firefox', '27.0', '127.0.0.1', 'Windows 7', '2014-03-08 07:54:49', 0, 1),
+(828, 'users', 'has logged', 1, 1, '/settings/users/profile/', 'Firefox', '27.0', '127.0.0.1', 'Windows 7', '2014-03-08 14:52:56', 0, 1),
+(829, NULL, 'has logged', 1, 1, '/settings/users/profile/', 'Firefox', '27.0', '127.0.0.1', 'Windows 7', '2014-03-08 15:09:22', 0, 1),
+(830, 'users', 'has logged', 1, 1, '/settings/users/profile/', 'Firefox', '27.0', '127.0.0.1', 'Windows 7', '2014-03-08 15:18:08', 0, 1),
+(831, 'users', 'has logged', 1, 1, '/settings/users/profile/', 'Firefox', '27.0', '127.0.0.1', 'Windows 7', '2014-03-08 15:26:45', 0, 1),
+(832, 'users', 'has logged', 1, 1, '/settings/users/profile/', 'Firefox', '27.0', '127.0.0.1', 'Windows 7', '2014-03-08 21:17:23', 0, 1),
+(833, 'news', 'created a slider', 1, 1, '/content/news/detail/', 'Firefox', '27.0', '127.0.0.1', 'Windows 7', '2014-03-08 22:34:49', 0, 1),
+(834, 'news', 'updated a news', 1, 1, '/content/news/detail/', 'Firefox', '27.0', '127.0.0.1', 'Windows 7', '2014-03-08 22:38:06', 0, 1),
+(835, 'users', 'has logged', 1, 1, '/settings/users/profile/', 'Firefox', '27.0', '127.0.0.1', 'Windows 7', '2014-03-09 09:47:01', 0, 1),
+(836, 'news', 'updated a category', 1, 1, '/content/news/detail/', 'Firefox', '27.0', '127.0.0.1', 'Windows 7', '2014-03-09 09:57:50', 0, 1),
+(837, 'news', 'created a category', 1, 2, '/content/news/detail/', 'Firefox', '27.0', '127.0.0.1', 'Windows 7', '2014-03-09 09:58:06', 0, 1),
+(838, 'news', NULL, 1, 1, '/content/news/detail/', 'Firefox', '27.0', '127.0.0.1', 'Windows 7', '2014-03-09 09:58:33', 0, 1),
+(839, 'news', NULL, 1, 2, '/content/news/detail/', 'Firefox', '27.0', '127.0.0.1', 'Windows 7', '2014-03-09 09:58:33', 0, 1),
+(840, 'news', 'created a category', 1, 3, '/content/news/detail/', 'Firefox', '27.0', '127.0.0.1', 'Windows 7', '2014-03-09 09:58:39', 0, 1),
+(841, 'news', NULL, 1, 3, '/content/news/detail/', 'Firefox', '27.0', '127.0.0.1', 'Windows 7', '2014-03-09 09:58:53', 0, 1),
+(842, 'news', NULL, 1, 2, '/content/news/detail/', 'Firefox', '27.0', '127.0.0.1', 'Windows 7', '2014-03-09 09:58:53', 0, 1),
+(843, 'news', NULL, 1, 1, '/content/news/detail/', 'Firefox', '27.0', '127.0.0.1', 'Windows 7', '2014-03-09 09:58:53', 0, 1),
+(844, 'news', NULL, 1, 3, '/content/news/detail/', 'Firefox', '27.0', '127.0.0.1', 'Windows 7', '2014-03-09 09:58:59', 0, 1),
+(845, 'news', NULL, 1, 2, '/content/news/detail/', 'Firefox', '27.0', '127.0.0.1', 'Windows 7', '2014-03-09 09:58:59', 0, 1),
+(846, 'news', NULL, 1, 1, '/content/news/detail/', 'Firefox', '27.0', '127.0.0.1', 'Windows 7', '2014-03-09 09:58:59', 0, 1),
+(847, 'news', NULL, 1, 3, '/content/news/detail/', 'Firefox', '27.0', '127.0.0.1', 'Windows 7', '2014-03-09 09:59:08', 0, 1),
+(848, 'news', NULL, 1, 2, '/content/news/detail/', 'Firefox', '27.0', '127.0.0.1', 'Windows 7', '2014-03-09 09:59:08', 0, 1),
+(849, 'news', NULL, 1, 1, '/content/news/detail/', 'Firefox', '27.0', '127.0.0.1', 'Windows 7', '2014-03-09 09:59:08', 0, 1),
+(850, 'news', 'updated a news', 1, 1, '/content/news/detail/', 'Firefox', '27.0', '127.0.0.1', 'Windows 7', '2014-03-09 10:15:29', 0, 1),
+(851, 'theme', NULL, 1, 4, NULL, 'Firefox', '27.0', '127.0.0.1', 'Windows 7', '2014-03-09 14:25:51', 0, 1),
+(852, 'theme', NULL, 1, 4, NULL, 'Firefox', '27.0', '127.0.0.1', 'Windows 7', '2014-03-09 14:26:22', 0, 1),
+(853, 'theme', NULL, 1, 4, NULL, 'Firefox', '27.0', '127.0.0.1', 'Windows 7', '2014-03-09 14:27:04', 0, 1),
+(854, 'theme', NULL, 1, 1, NULL, 'Firefox', '27.0', '127.0.0.1', 'Windows 7', '2014-03-09 14:27:04', 0, 1),
+(855, 'theme', NULL, 1, 4, NULL, 'Firefox', '27.0', '127.0.0.1', 'Windows 7', '2014-03-09 14:29:10', 0, 1),
+(856, 'theme', NULL, 1, 1, NULL, 'Firefox', '27.0', '127.0.0.1', 'Windows 7', '2014-03-09 14:29:10', 0, 1),
+(857, 'theme', NULL, 1, 4, NULL, 'Firefox', '27.0', '127.0.0.1', 'Windows 7', '2014-03-09 14:30:10', 0, 1),
+(858, 'theme', NULL, 1, 1, NULL, 'Firefox', '27.0', '127.0.0.1', 'Windows 7', '2014-03-09 14:30:10', 0, 1),
+(859, 'theme', NULL, 1, 4, NULL, 'Firefox', '27.0', '127.0.0.1', 'Windows 7', '2014-03-09 14:31:17', 0, 1),
+(860, 'theme', NULL, 1, 1, NULL, 'Firefox', '27.0', '127.0.0.1', 'Windows 7', '2014-03-09 14:31:17', 0, 1),
+(861, 'theme', NULL, 1, 4, NULL, 'Firefox', '27.0', '127.0.0.1', 'Windows 7', '2014-03-09 14:32:40', 0, 1),
+(862, 'theme', NULL, 1, 1, NULL, 'Firefox', '27.0', '127.0.0.1', 'Windows 7', '2014-03-09 14:32:40', 0, 1),
+(863, 'theme', NULL, 1, 4, NULL, 'Firefox', '27.0', '127.0.0.1', 'Windows 7', '2014-03-09 14:33:06', 0, 1),
+(864, 'theme', NULL, 1, 1, NULL, 'Firefox', '27.0', '127.0.0.1', 'Windows 7', '2014-03-09 14:33:07', 0, 1),
+(865, 'theme', NULL, 1, 4, NULL, 'Firefox', '27.0', '127.0.0.1', 'Windows 7', '2014-03-09 14:33:25', 0, 1),
+(866, 'theme', NULL, 1, 1, NULL, 'Firefox', '27.0', '127.0.0.1', 'Windows 7', '2014-03-09 14:33:25', 0, 1);
 
 -- --------------------------------------------------------
 
@@ -899,6 +939,10 @@ CREATE TABLE IF NOT EXISTS `efox_customer` (
   `expiry_date` date NOT NULL DEFAULT '0000-00-00',
   `created_on` datetime DEFAULT NULL,
   `created_by` int(11) DEFAULT NULL,
+  `language_id` int(11) NOT NULL,
+  `theme_id` int(11) NOT NULL,
+  `modify_on` datetime DEFAULT NULL,
+  `modify_by` int(11) DEFAULT NULL,
   PRIMARY KEY (`customer_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=4 ;
 
@@ -906,30 +950,10 @@ CREATE TABLE IF NOT EXISTS `efox_customer` (
 -- Dumping data for table `efox_customer`
 --
 
-INSERT INTO `efox_customer` (`customer_id`, `username`, `active`, `expiry_date`, `created_on`, `created_by`) VALUES
-(1, 'duyanhvn', 1, '2014-03-21', NULL, NULL),
-(2, 'tuanda', 1, '2014-03-28', NULL, NULL),
-(3, 'duyanh980', 1, '2014-03-21', '2014-03-06 21:26:28', 6);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `efox_customer_language`
---
-
-CREATE TABLE IF NOT EXISTS `efox_customer_language` (
-  `language_id` int(11) NOT NULL,
-  `customer_id` int(11) NOT NULL,
-  PRIMARY KEY (`language_id`,`customer_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Dumping data for table `efox_customer_language`
---
-
-INSERT INTO `efox_customer_language` (`language_id`, `customer_id`) VALUES
-(1, 1),
-(2, 1);
+INSERT INTO `efox_customer` (`customer_id`, `username`, `active`, `expiry_date`, `created_on`, `created_by`, `language_id`, `theme_id`, `modify_on`, `modify_by`) VALUES
+(1, 'duyanhvn', 1, '2014-03-21', NULL, NULL, 1, 4, '2014-03-09 07:33:25', 1),
+(2, 'tuanda', 1, '2014-03-28', NULL, NULL, 0, 0, NULL, NULL),
+(3, 'duyanh980', 1, '2014-03-21', '2014-03-06 21:26:28', 6, 0, 0, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1077,7 +1101,7 @@ CREATE TABLE IF NOT EXISTS `efox_menu_backend` (
   `created_by` int(11) DEFAULT NULL,
   `modify_by` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=31 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=34 ;
 
 --
 -- Dumping data for table `efox_menu_backend`
@@ -1089,7 +1113,81 @@ INSERT INTO `efox_menu_backend` (`id`, `name`, `url`, `target`, `active`, `order
 (4, 'Settings', '/admin/settings/system', '_self', 1, 4, 0, 'assets/uploads/8d6ab84ca2af9fccd4e4048694176ebf/cee8d6b7ce52554fd70354e37bbf44a2/ff44570aca8241914870afbc310cdb85/system.png', '["1","2"]', NULL, '2014-03-06 15:36:19', NULL, 6),
 (11, 'Roles', '/admin/settings/roles', '_self', 0, 0, 4, '', '["1"]', NULL, NULL, NULL, NULL),
 (20, 'Permissions', '/admin/settings/permissions', '_self', 0, 1, 4, '', '["1"]', NULL, '2014-03-06 15:36:19', NULL, 6),
-(30, 'Slider', '/admin/content/slider', '_self', 1, 3, 0, NULL, '["1"]', NULL, NULL, NULL, NULL);
+(30, 'Slider', '/admin/content/slider', '_self', 1, 3, 0, NULL, '["1"]', NULL, NULL, NULL, NULL),
+(31, 'News', '/admin/content/news', '_self', 1, 0, 0, NULL, '["1"]', NULL, NULL, NULL, NULL),
+(32, 'Category', '/admin/content/news/category', '_self', 1, 0, 31, NULL, '["1"]', NULL, NULL, NULL, NULL),
+(33, 'News', '/admin/content/news', '_self', 1, 0, 31, NULL, '["1"\r\n]', NULL, NULL, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `efox_news`
+--
+
+CREATE TABLE IF NOT EXISTS `efox_news` (
+  `news_id` int(11) NOT NULL AUTO_INCREMENT,
+  `news_category_id` int(11) DEFAULT NULL,
+  `news_title` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `news_image` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `news_intro` text COLLATE utf8_unicode_ci,
+  `news_description` longtext COLLATE utf8_unicode_ci,
+  `news_date` datetime DEFAULT NULL,
+  `news_tags` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `news_source` varchar(150) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `news_meta_title` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `news_meta_keyword` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `news_meta_description` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `active` tinyint(1) NOT NULL DEFAULT '1',
+  `created_on` datetime DEFAULT NULL,
+  `created_by` int(11) DEFAULT NULL,
+  `modify_on` datetime DEFAULT NULL,
+  `modify_by` int(11) DEFAULT NULL,
+  `deleted` tinyint(1) NOT NULL DEFAULT '0',
+  `customer_id` int(11) NOT NULL,
+  PRIMARY KEY (`news_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `efox_news`
+--
+
+INSERT INTO `efox_news` (`news_id`, `news_category_id`, `news_title`, `news_image`, `news_intro`, `news_description`, `news_date`, `news_tags`, `news_source`, `news_meta_title`, `news_meta_keyword`, `news_meta_description`, `active`, `created_on`, `created_by`, `modify_on`, `modify_by`, `deleted`, `customer_id`) VALUES
+(1, 1, 'hả hà hạ hã hỉ hì hí', 'assets/uploads/508c75c8507a2ae5223dfd2faeb98122/cee8d6b7ce52554fd70354e37bbf44a2/ff44570aca8241914870afbc310cdb85/1558440_393198914151035_1640511908_n1.jpg', 'intro', '<p><strong>description</strong></p>', NULL, 'tags1,tags2', NULL, 'title', 'keyword', 'description', 1, '2014-03-08 15:34:49', 1, '2014-03-09 03:15:29', 1, 0, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `efox_news_category`
+--
+
+CREATE TABLE IF NOT EXISTS `efox_news_category` (
+  `category_id` int(11) NOT NULL AUTO_INCREMENT,
+  `parent_id` int(11) NOT NULL DEFAULT '0',
+  `category_image` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `category_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `category_description` text COLLATE utf8_unicode_ci,
+  `active` tinyint(1) NOT NULL DEFAULT '1',
+  `category_meta_title` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `category_meta_keyword` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `category_meta_description` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `customer_id` int(11) NOT NULL,
+  `created_on` datetime DEFAULT NULL,
+  `created_by` int(11) DEFAULT NULL,
+  `modify_on` datetime DEFAULT NULL,
+  `modify_by` int(11) DEFAULT NULL,
+  `deleted` tinyint(1) NOT NULL DEFAULT '0',
+  `order` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`category_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=4 ;
+
+--
+-- Dumping data for table `efox_news_category`
+--
+
+INSERT INTO `efox_news_category` (`category_id`, `parent_id`, `category_image`, `category_name`, `category_description`, `active`, `category_meta_title`, `category_meta_keyword`, `category_meta_description`, `customer_id`, `created_on`, `created_by`, `modify_on`, `modify_by`, `deleted`, `order`) VALUES
+(1, 2, 'assets/uploads/c4ef352f74e502ef5e7bc98e6f4e493d/cee8d6b7ce52554fd70354e37bbf44a2/ff44570aca8241914870afbc310cdb85/2014-03-02_20-48.jpg', 'about', 'mo ta', 1, 'title', 'keyword', 'description', 1, NULL, NULL, '2014-03-09 02:59:08', 1, 0, 1),
+(2, 3, 'assets/uploads/c4ef352f74e502ef5e7bc98e6f4e493d/cee8d6b7ce52554fd70354e37bbf44a2/ff44570aca8241914870afbc310cdb85/2014-03-02_20-48.jpg', 'about2', 'mo ta', 1, 'title', 'keyword', 'description', 1, '2014-03-09 02:58:06', 1, '2014-03-09 02:59:08', 1, 0, 1),
+(3, 0, 'assets/uploads/c4ef352f74e502ef5e7bc98e6f4e493d/cee8d6b7ce52554fd70354e37bbf44a2/ff44570aca8241914870afbc310cdb85/2014-03-02_20-48.jpg', 'about4', 'mo ta', 1, 'title', 'keyword', 'description', 1, '2014-03-09 02:58:39', 1, '2014-03-09 02:59:08', 1, 0, 1);
 
 -- --------------------------------------------------------
 
@@ -1103,7 +1201,7 @@ CREATE TABLE IF NOT EXISTS `efox_permissions` (
   `description` varchar(100) NOT NULL,
   `status` enum('active','inactive','deleted') NOT NULL DEFAULT 'active',
   PRIMARY KEY (`permission_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=20 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=22 ;
 
 --
 -- Dumping data for table `efox_permissions`
@@ -1123,7 +1221,9 @@ INSERT INTO `efox_permissions` (`permission_id`, `name`, `description`, `status`
 (14, 'Emailer.Queue.Delete', '', 'active'),
 (16, 'Site.Permissions.Manage', '', 'active'),
 (18, 'Site.Customer.Manage', 'To manage the access control permissions for the  role', 'active'),
-(19, 'Permission.Slider.Manage', '', 'active');
+(19, 'Permission.Slider.Manage', '', 'active'),
+(20, 'Permission.Product.Manage', '', 'active'),
+(21, 'Permission.News.Manage', '', 'active');
 
 -- --------------------------------------------------------
 
@@ -1186,6 +1286,8 @@ INSERT INTO `efox_role_permissions` (`role_id`, `permission_id`, `customer_id`) 
 (1, 17, 0),
 (1, 18, 0),
 (1, 19, 0),
+(1, 20, 0),
+(1, 21, 0),
 (2, 1, 0),
 (2, 5, 0),
 (2, 7, 0),
@@ -1296,6 +1398,93 @@ INSERT INTO `efox_system` (`name`, `value`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `efox_theme`
+--
+
+CREATE TABLE IF NOT EXISTS `efox_theme` (
+  `theme_id` int(11) NOT NULL AUTO_INCREMENT,
+  `theme_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `theme_image` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `theme_folder` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `theme_author` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'Keith',
+  `theme_description` text COLLATE utf8_unicode_ci,
+  `theme_demo` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `theme_installs` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`theme_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=6 ;
+
+--
+-- Dumping data for table `efox_theme`
+--
+
+INSERT INTO `efox_theme` (`theme_id`, `theme_name`, `theme_image`, `theme_folder`, `theme_author`, `theme_description`, `theme_demo`, `theme_installs`) VALUES
+(1, 'Shop hoa', 'theme1.jpg', 'abc', 'Keith', NULL, 'http://google.com', 0),
+(2, 'shop 2', 'theme2.jpg', '', 'Keith', NULL, NULL, 0),
+(3, 'shop 3', 'theme3.jpg', '', 'Keith', NULL, NULL, 0),
+(4, 'shop4', 'theme4.jpg', '', 'Keith', NULL, NULL, 9),
+(5, 'shop5', 'theme5.jpg', '', 'Keith', NULL, NULL, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `efox_theme_category`
+--
+
+CREATE TABLE IF NOT EXISTS `efox_theme_category` (
+  `theme_id` int(11) NOT NULL,
+  `category_id` int(11) NOT NULL,
+  PRIMARY KEY (`theme_id`,`category_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `efox_theme_category`
+--
+
+INSERT INTO `efox_theme_category` (`theme_id`, `category_id`) VALUES
+(1, 2),
+(1, 3),
+(1, 5),
+(2, 2);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `efox_theme_gallery`
+--
+
+CREATE TABLE IF NOT EXISTS `efox_theme_gallery` (
+  `theme_id` int(11) NOT NULL,
+  `image` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `efox_theme_tags`
+--
+
+CREATE TABLE IF NOT EXISTS `efox_theme_tags` (
+  `theme_id` int(11) NOT NULL,
+  `tags` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`theme_id`,`tags`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `efox_theme_tags`
+--
+
+INSERT INTO `efox_theme_tags` (`theme_id`, `tags`) VALUES
+(1, 'Red'),
+(1, 'Responsive'),
+(2, 'Blue'),
+(3, 'Clear'),
+(4, 'Nice'),
+(5, 'Future'),
+(6, 'Beatiful');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `efox_users`
 --
 
@@ -1328,7 +1517,7 @@ CREATE TABLE IF NOT EXISTS `efox_users` (
 --
 
 INSERT INTO `efox_users` (`id`, `role_id`, `email`, `first_name`, `last_name`, `password_hash`, `reset_hash`, `last_login`, `last_ip`, `reset_by`, `deleted`, `modify_by`, `modify_on`, `active`, `avatar`, `birthday`, `created_by`, `created_on`, `customer_id`) VALUES
-(1, 1, 'keith@jupitech.sg', 'Duy Anh', 'Ha', '$2a$08$nEBztpwD7RMORzWSlx18RezmogItnin8ke5q6fejSFJbHYeJd1q5G', '04b953fa45286657763277530e27e1f794c59465', '2014-03-07 20:34:03', '127.0.0.1', 1392266953, 0, 1, '2014-03-07 13:34:03', 1, 'assets/uploads/aec9f4efc5a055bbd053f220538c61e0/cee8d6b7ce52554fd70354e37bbf44a2/ff44570aca8241914870afbc310cdb85/hinh-xam-ca-chep-dep-19-cua-nam-fuong-tattoo3.jpg', '1990-01-22', 1, '2014-01-21 09:18:27', 1),
+(1, 1, 'keith@jupitech.sg', 'Duy Anh', 'Ha', '$2a$08$nEBztpwD7RMORzWSlx18RezmogItnin8ke5q6fejSFJbHYeJd1q5G', '04b953fa45286657763277530e27e1f794c59465', '2014-03-09 09:47:01', '127.0.0.1', 1392266953, 0, 1, '2014-03-09 02:47:01', 1, 'assets/uploads/aec9f4efc5a055bbd053f220538c61e0/cee8d6b7ce52554fd70354e37bbf44a2/ff44570aca8241914870afbc310cdb85/hinh-xam-ca-chep-dep-19-cua-nam-fuong-tattoo3.jpg', '1990-01-22', 1, '2014-01-21 09:18:27', 1),
 (2, 1, 'customer@jupitech.sg', 'Jupitech', 'test', '$2a$08$3bPGnaQj8nwDdslQ1QW1OedvZuko0degh6bjT53LKUAzKhKpgh14S', NULL, '2014-02-10 10:27:17', '::1', NULL, 0, 1, '2014-03-07 14:18:15', 1, 'assets/uploads/aec9f4efc5a055bbd053f220538c61e0/cee8d6b7ce52554fd70354e37bbf44a2/ff44570aca8241914870afbc310cdb85/2014-03-02_20-55_Windows_Media_Player.jpg', '2014-02-06', 1, '2014-02-06 02:07:51', 1),
 (3, 1, 'admin@jupitech.sg', 'Developer', 'j', '$2a$08$.sMgePH1RxmyxWmRQ3RbPuaicQ2X26pyZ0lBY0CC/K6wJDVtFnVQS', NULL, '2014-03-02 20:50:18', '127.0.0.1', NULL, 0, 3, '2014-03-02 13:50:18', 1, '', '2014-02-10', 1, '2014-02-10 08:58:41', 2),
 (4, 1, 'haduyanh@gmail.com', 'Test', 'User', '$2a$08$53UILJt2wmAUlszWVyD3rOPPUU/onShqsAamRL55JA6N7hxSxA7py', NULL, '0000-00-00 00:00:00', '', NULL, 0, 1, '0000-00-00 00:00:00', 1, 'assets/uploads/aec9f4efc5a055bbd053f220538c61e0/cee8d6b7ce52554fd70354e37bbf44a2/ff44570aca8241914870afbc310cdb85/0pbembhfqj6e5joe0mam1.jpg', '2014-03-21', 1, '2014-03-01 11:41:12', 2),
@@ -1354,6 +1543,34 @@ CREATE TABLE IF NOT EXISTS `efox_user_cookies` (
 
 INSERT INTO `efox_user_cookies` (`user_id`, `token`, `created_on`) VALUES
 (1, 'zH45UtYVzZSvGS5zrVK7Uvzt1It3s7wuJV5ltjDYUWoIRvxrvJz9xcVpdCZ4yQx6uPG2C8IxBCWLLNFUxJZExQDE9s1emov88er5EvhUOo0ZypIIwFyRiYBQrT8u7vMP', '2014-01-24 03:05:22');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `efox_web_category`
+--
+
+CREATE TABLE IF NOT EXISTS `efox_web_category` (
+  `category_id` int(11) NOT NULL AUTO_INCREMENT,
+  `category_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `category_image` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `category_active` tinyint(1) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`category_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=9 ;
+
+--
+-- Dumping data for table `efox_web_category`
+--
+
+INSERT INTO `efox_web_category` (`category_id`, `category_name`, `category_image`, `category_active`) VALUES
+(1, 'Thoi Trang', '', 1),
+(2, 'Lam Dep', '', 1),
+(3, 'May Moc', '', 1),
+(4, 'Cong Nghe', '', 1),
+(5, 'Noi That', '', 1),
+(6, 'An Uong', '', 1),
+(7, 'Truong Hoc', '', 1),
+(8, 'Khac', '', 1);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

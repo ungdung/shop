@@ -67,7 +67,8 @@ class Base_Controller extends CI_Controller
 	 */
 	public function __construct()
 	{
-		parent::__construct();
+        parent::__construct();
+
 
         $this->lang->load('general');
         $this->load->model('users/customer_model','customer_model');

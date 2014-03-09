@@ -71,7 +71,6 @@ class MX_Router extends CI_Router
 		if (isset($segments[0]) AND $routes = Modules::parse_routes($segments[0], implode('/', $segments))) {
 			$segments = $routes;
 		}
-	
 		/* get the segments array elements */
 		list($module, $directory, $controller) = array_pad($segments, 3, NULL);
 

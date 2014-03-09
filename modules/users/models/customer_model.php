@@ -9,6 +9,7 @@
 class Customer_model extends BF_Model {
 
     protected $table_name = 'customer';
+    protected $key = 'customer_id';
     protected $date_format = 'datetime';
 
 

@@ -43,7 +43,7 @@ if ( ! function_exists('site_url'))
     {
         $CI =& get_instance();
         if(strpos($uri,"//")===false) {
-            if(defined('CUSTOMER')) $uri =str_replace("//","/",CUSTOMER.'/'.$uri);
+            $uri = str_replace("//","/",CUSTOMER_PATH.$uri);
             return $CI->config->site_url($uri);
         }
         return $uri;
@@ -166,7 +166,6 @@ if ( ! function_exists('anchor'))
 		{
 			$site_url = site_url($uri);
 		}
-
 		if ($title == '')
 		{
 			$title = $site_url;

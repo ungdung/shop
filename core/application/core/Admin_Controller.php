@@ -18,7 +18,7 @@
 class Admin_Controller extends Authenticated_Controller
 {
     protected $pager;
-    protected $limit;
+    protected $limit=15;
     protected $kTable;
     //--------------------------------------------------------------------
 

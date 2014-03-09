@@ -1,7 +1,7 @@
 1. chinh sua phan delete
 
-1. category news
-2. news
+1. category news ok
+2. news ok
 3. category product
 4. products
 5. module support

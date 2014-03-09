@@ -96,10 +96,9 @@ if(!$customer) {
         $path = $customer->username.'/';
     }
 
-    $language = $db->join('language','language.language_id=customer_language.language_id')->where(array('customer_id'=>CUSTOMER_ID))->get('customer_language')->row('code');
+    $language = $db->join('language','language.language_id=customer.language_id')->where(array('customer_id'=>CUSTOMER_ID))->get('customer')->row('code');
 
     define('LANGUAGE',$language);
-
     define('CUSTOMER_PATH',$path);
     unset($language,$useDomain,$customer,$path);
 
