@@ -9,11 +9,10 @@
 
 class Menu_model extends BF_Model
 {
-
     protected $table_name = 'menu';
     protected $key = 'menu_id';
     protected $customer_id = true;
-
+    protected $log_activity = false;
 
 
     function __construct() {
@@ -28,21 +27,16 @@ class Menu_model extends BF_Model
     }
 
     public function _delete($ids= array()) {
-    $menus = array();
-        if(!empty($ids)) {
-            foreach($ids as $var) {
-                $menus = array_merge($this->getChildrenItems($var),$menus);
-            }
-            parent::_delete($menus);
-        }
+        $menu = $this->getChildrenItems($ids);
+        return parent::_delete($menu);
     }
 
-    private function getChildrenItems($item) {
-        $menu = parent::find_all_by(array('parent_id'=>$item));
-        $items= array($item);
+    private function getChildrenItems($id) {
+        $items[] = $id;
+        $menu = parent::find_all_by(array('parent_id'=>$id));
         if(!empty($menu)) {
             foreach($menu as $var) {
-                $items[] = $var->menu_id;
+                $items = array_merge($items,$this->getChildrenItems($var->menu_id));
             }
         }
         return $items;
@@ -106,6 +100,7 @@ class Menu_model extends BF_Model
         }
         return $category;
     }
+
 
 }
 

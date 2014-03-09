@@ -88,15 +88,14 @@ if(!$customer) {
 } else {
     define('CUSTOMER_ID',$customer->customer_id);
     define('CUSTOMER',$customer->username);
-
+    define('THEME_ID',$customer->theme_id);
     if($useDomain) {
         $path = '';
     }
     else {
         $path = $customer->username.'/';
     }
-
-    $language = $db->join('language','language.language_id=customer.language_id')->where(array('customer_id'=>CUSTOMER_ID))->get('customer')->row('code');
+    $language = $db->where(array('language_id'=>$customer->language_id))->get('language')->row('code');
 
     define('LANGUAGE',$language);
     define('CUSTOMER_PATH',$path);

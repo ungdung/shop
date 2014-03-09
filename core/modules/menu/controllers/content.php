@@ -18,10 +18,17 @@ class Content extends Admin_Controller
         $this->load->model('menu_model');
     }
 
-    public function index($id=false) {
+    public function index($id=false,$type='') {
         $menu = $this->menu_model->find($id);
         if($menu) {
             Template::set('menu',$menu);
+        }
+        if($type=='delete') {
+            $result = $this->menu_model->_delete($id);
+            if($result) {
+                Template::set_message(lang('Delete Success'),'success');
+                //Template::redirect(MODULE_URL);
+            }
         }
         if($this->input->post()) {
             if($_POST['submit']==lang('Create New') AND $id) {

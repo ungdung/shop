@@ -71,8 +71,13 @@
 
             <div class="formRow">
                 <div class="grid12">
-                    <input type="submit" name="submit" value="<?php echo lang("Save"); ?>" class="buttonM bBlue formSubmit" />
+                    <?php if(isset($menu)): ?>
+                        <input type="submit" name="submit" value="<?php echo lang("Save"); ?>" class="buttonM bBlue formSubmit" />
+                    <?php endif; ?>
                     <input type="submit" name="submit" value="<?php echo lang("Create New"); ?>" class="buttonM bBlue formSubmit" style="margin-right:20px;" />
+                    <?php if(isset($menu)): ?>
+                        <a href="<?php echo site_url(MODULE_URL.'/index/'.$menu->menu_id.'/delete    '); ?>" onclick="return confirm('<?php echo lang('Are you sure?'); ?>');" class="buttonM bRed formSubmit" style="margin-right:20px;"><?php echo lang('Delete'); ?></a>
+                    <?php endif; ?>
                 </div>
                 <div class="clear"></div>\
             </div>

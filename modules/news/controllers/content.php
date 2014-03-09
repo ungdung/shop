@@ -121,13 +121,9 @@ class Content extends Admin_Controller {
             Template::set('category',$category);
         }
         if($type=='delete') {
-            $result = $this->news_category_model->delete($id);
+            $result = $this->news_category_model->_delete($id);
             if($result) {
                 Template::set_message(lang('Delete Success'),'success');
-                Template::redirect(MODULE_URL.'/category');
-            }
-            else {
-                Template::set_message(lang('Delete Error'),'error');
                 Template::redirect(MODULE_URL.'/category');
             }
         }

@@ -21,7 +21,7 @@ $lang['Create Category']    =   'Tạo danh mục';
 $lang['Update Category']    =   'Cập nhật danh mục';
 $lang['Category Not Found']     =   'Danh mục này không tồn tại';
 $lang['Create New']             =   'Tạo mới';
-$lang['Parent']             =   '';
+$lang['Parent']             =   'Gốc';
 $lang['Image']              =   'Hình ảnh';
 $lang['Order Category']     =   'Sắp xếp';
 
